@@ -1,0 +1,179 @@
+@use "variables" as *;
+@import "menu";
+@import "homeSlider";
+@import "aboute";
+@import "mouse.scss";
+body {
+  /* Sakrij sadržaj dok se stranica učitava */
+  background-color: black;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+  font-size: initial;
+  font-family: initial;
+  line-height: normal;
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 1); /* crni ekran */
+  z-index: 1000; /* postavljanje na vrh */
+  opacity: 0;
+  pointer-events: none; /* onemogućava interakciju sa overlay-om */
+}
+
+#overlay.show {
+  opacity: 1; /* kada je aktiviran, overlay postaje vidljiv */
+}
+.dd {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
+}
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+.beckGroundImage {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #161616; /* Pozadina loading screena */
+  z-index: 9999; /* Budi iznad svega */
+}
+
+.loading-counter {
+  font-size: 3rem;
+  font-weight: bold;
+  color: white;
+  position: absolute;
+  top: 20%;
+}
+
+.grid {
+  position: absolute;
+  left: -10%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2rem;
+  width: 120%;
+  transition: all 3s cubic-bezier(0.47, 0, 0.745, 0.715);
+}
+
+/* CSS za sliku unutar .img-container.ss */
+.img-container.ss img {
+  width: 100%; /* Širina slike */
+  height: 100%; /* Visina slike */
+  object-fit: cover; /* Osigurava da slika zauzme ceo prostor bez deformacije */
+  object-position: center; /* Centrira sliku */
+  display: block; /* Uklanja dodatni prostor ispod slike */
+}
+
+.n {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.ss {
+  position: relative;
+  z-index: 99999999999;
+}
+
+.img-container {
+  height: 100px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Generalni stilovi za projekte */
+.projects__con {
+  margin: 0 auto;
+}
+
+.project-item {
+  list-style: none;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.line-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #000;
+  transition: transform 0.3s ease-in-out;
+
+  transform-origin: right;
+}
+
+/* Pomeranje tekstova na hover */
+.link-row h4 {
+  font-size: 24px;
+  font-weight: 400;
+  transition: all 0.4s ease;
+}
+
+/* Animacija kada je projekat hoverovan */
+.project-item:hover .link-row-1 h4 {
+  transform: translateX(-10px);
+}
+
+.project-item:hover .link-row-2 h4 {
+  transform: translateX(10px);
+}
+
+/* Dodavanje efekta smanjenja opaciteta */
+.project-item:hover {
+  opacity: 0.7;
+}
+
+/* Dodavanje tranzicije za sve */
+.project-item,
+.link-row h4 {
+  transition: all 0.4s ease;
+}

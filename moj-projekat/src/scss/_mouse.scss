@@ -1,0 +1,71 @@
+/* Kontejner sa slikama */
+.image-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 400px;
+  overflow: hidden; /* Skrivamo slike van ekrana */
+  pointer-events: none;
+  opacity: 0;
+  z-index: 10;
+}
+
+.image-slider {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column; /* Slike su poređane vertikalno */
+  transition: transform 0.5s ease-out;
+}
+
+.image-slide {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.5s ease-out;
+}
+
+.image-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Pomera sliku kada je aktivna */
+.image-slide.active {
+  transform: translateY(0); /* Slika zauzima centar */
+}
+
+/* Skrivanje slika koje nisu aktivne */
+.image-slide.inactive {
+  transform: translateY(100%); /* Pomeri slike van ekrana */
+}
+
+/* Prva slika treba da ide van ekrana na hover */
+.image-slide:nth-child(1).inactive {
+  transform: translateY(-100%); /* Pomeri prvu sliku gore */
+}
+.mobile-projects {
+  display: none;
+}
+@media (max-width: 768px) {
+  /* Skrivanje svih projekata (project elements) na mobilnim uređajima */
+  .Projects {
+    display: none;
+  }
+
+  /* Prikazivanje mobilnih projekata */
+  .mobile-projects {
+    display: block;
+  }
+
+  /* Skrivanje image-container na mobilnim uređajima */
+  .image-container {
+    display: none;
+  }
+}

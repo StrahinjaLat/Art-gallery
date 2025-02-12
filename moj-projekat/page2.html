@@ -1,0 +1,59 @@
+<!-- page2.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App - Page 2</title>
+  </head>
+  <body data-barba="wrapper">
+    <!-- Ovo je sadržaj koji se neće menjati između stranica (npr. header, footer) -->
+    <button
+      class="button"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+      onclick="toggleMenu()"
+    >
+      <div class="slider" id="slider">
+        <div class="el" id="menuLabel">
+          <span>Menu</span>
+        </div>
+        <div class="el" id="closeLabel">
+          <span>Close</span>
+        </div>
+      </div>
+    </button>
+
+    <!-- Menu - sadržaj koji se proširuje uz animaciju -->
+    <nav id="menu" class="menu" aria-hidden="true">
+      <div class="menu-links">
+        <ul>
+          <li class="linkContainer"><a href="/" class="link">Home</a></li>
+          <li class="linkContainer"><a href="/about" class="link">About</a></li>
+          <li class="linkContainer">
+            <a href="/services" class="link">Services</a>
+          </li>
+          <li class="linkContainer">
+            <a href="/contact" class="link">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div id="overlay"></div>
+    <header>
+      <nav>
+        <a href="/page1.html">Stranica 1</a>
+        <a href="/page2.html">Stranica 2</a>
+      </nav>
+    </header>
+
+    <!-- Ovo je sadržaj koji se menja između stranica (barba-container) -->
+    <main data-barba="container" data-barba-namespace="page2">
+      <h1>Stranica 2</h1>
+      <footer></footer>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

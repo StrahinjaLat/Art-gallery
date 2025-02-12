@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="preload" href="/src/style.css" as="style" />
+    
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body class="mf-container" data-barba="wrapper" >
+    <div id="overlay"></div>
+    <div class="dd">
+    <a href="/page1.html">Stranica 1</a>
+    <a href="/page2.html">Stranica 2</a> 
+    <a href="/page2.html">Stranica 2</a> 
+  </div>
+   
+   
+    <!-- <div class="loading-screen" id="loading-screen">
+      <div class="loading-counter" id="loading-counter">
+        <span id="counter">0</span>%
+      </div> -->
+      <!-- <div class="grid">
+        <div class="n prvi">
+          <div class="img-container one">
+            <img src="images/Intro1.jpg" alt="Image 1" class="image" />
+          </div>
+          <div class="img-container one">
+            <img src="images/Intro1.jpg" alt="Image 2" class="image" />
+          </div>
+          <div class="img-container one">
+            <img src="images/Intro2.jpg" alt="Image 3" class="image" />
+          </div>
+          <div class="img-container one">
+            <img src="images/Intro3.jpg" alt="Image 4" class="image" />
+          </div>
+        </div>
+        <div class="n drugi">
+          <div class="img-container two" style="order: 4">
+            <img src="images/Intro1.jpg" alt="Image 5" class="image" />
+          </div>
+          <div class="img-container two" style="order: 3">
+            <img src="images/Intro2.jpg" alt="Image 6" class="image" />
+          </div>
+          <div class="img-container two" style="order: 2">
+            <img src="images/Intro3.jpg" alt="Image 7" class="image" />
+          </div>
+          <div class="img-container two" style="order: 1">
+            <img src="images/Intro2.jpg" alt="Image 14" class="image" />
+          </div>
+        </div>
+        <div class="n treci">
+          <div class="img-container c">
+            <img src="images/Intro1.jpg" alt="Image 9" class="image" />
+          </div>
+          <div class="img-container c">
+            <img src="images/Intro2.jpg" alt="Image 10" class="image" />
+          </div>
+          <div class="img-container c ss">
+            <img
+              class="zoom"
+              src="images/Intro2.jpg"
+              alt="Image 11"
+              class="image"
+            />
+          </div>
+          <div class="img-container c">
+            <img src="images/Intro2.jpg" alt="Image 14" class="image" />
+          </div>
+        </div>
+        <div class="n cetvrti">
+          <div class="img-container t" style="order: 4">
+            <img src="images/Intro1.jpg" alt="Image 13" class="image" />
+          </div>
+          <div class="img-container t" style="order: 3">
+            <img src="images/Intro2.jpg" alt="Image 14" class="image" />
+          </div>
+          <div class="img-container t" style="order: 2">
+            <img src="images/Intro3.jpg" alt="Image 15" class="image" />
+          </div>
+          <div class="img-container t" style="order: 1">
+            <img src="images/Intro2.jpg" alt="Image 14" class="image" />
+          </div>
+        </div>
+        <div class="n peti">
+          <div class="img-container five">
+            <img src="images/Intro1.jpg" alt="Image 17" class="image" />
+          </div>
+          <div class="img-container five">
+            <img src="images/Intro2.jpg" alt="Image 18" class="image" />
+          </div>
+          <div class="img-container five">
+            <img src="images/Intro3.jpg" alt="Image 19" class="image" />
+          </div>
+          <div class="img-container five">
+            <img src="images/Intro2.jpg" alt="Image 14" class="image" />
+          </div>
+        </div>
+      </div>
+    </div>  -->
+   <!-- Button element, koji se koristi za pozivanje funkcije za otvaranje/zatvaranje menija -->
+   <button class="button" aria-label="Toggle menu" aria-expanded="false" onclick="toggleMenu()">
+    <div class="slider" id="slider">
+      <div class="el" id="menuLabel">
+        <span>Menu</span>
+      </div>
+      <div class="el" id="closeLabel">
+        <span>Close</span>
+      </div>
+    </div>
+  </button>
+  
+  <!-- Menu - sadržaj koji se proširuje uz animaciju -->
+  <nav id="menu" class="menu" aria-hidden="true">
+    <div class="menu-links">
+      <ul>
+        <li class="linkContainer"><a href="/" class="link">Home</a></li>
+        <li class="linkContainer"><a href="/about" class="link">About</a></li>
+        <li class="linkContainer"><a href="/services" class="link">Services</a></li>
+        <li class="linkContainer"><a href="/contact" class="link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+    
+    </header>
+    <main data-barba="container" data-barba-namespace="home">
+    
+     
+    
+  		<nav class="slides-nav">
+        <button class="slides-nav__item slides-nav__item--prev">&larr;</button>
+        <button class="slides-nav__item slides-nav__item--next">&rarr;</button>
+      </nav>
+    </div>
+    <div class="slides">
+      <div class="slide">
+        <div class="slide__img beckGroundImage" >
+          <img src="images/Intro1.jpg" alt="">
+        </div>
+      </div>
+      <div class="slide">
+        <div class="slide__img" >
+          <img src="images/Intro1.jpg" alt="">
+        </div>
+      </div>
+      <div class="slide">
+        <div class="slide__img" >
+          <img src="images/Intro1.jpg" alt="">
+        </div>
+      </div>
+      
+    </div>
+
+    <section class="aboute">
+      <section class="projects-grid">
+        <div class="padding-con">
+          <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="grid-p">
+              <div class="grid-item" id="gridItem1">
+                <a class="change-color-1" href="/project">
+                  <div class="case" id="case1">
+                    <img src="images/Intro1.jpg" alt="Project 1" class="img-one" />
+                    <div class="bg-color"></div>
+                  </div>
+                  <div class="text-wrapper">
+                    <h3>01.project</h3>
+                  </div>
+                </a>
+              </div>
+              <div class="grid-item" id="gridItem2">
+                <a class="change-color-2" href="/project">
+                  <div class="case" id="case2">
+                    <img src="images/Intro1.jpg" alt="Project 2" class="img-one" />
+                    <div class="bg-color"></div>
+                  </div>
+                  <div class="text-wrapper">
+                    <p>Project description</p>
+                  </div>
+                </a>
+              </div>
+              <div class="grid-item" id="gridItem3">
+                <a class="change-color-3" href="/project">
+                  <div class="case" id="case3">
+                    <img src="images/Intro1.jpg" alt="Project 3" class="img-one" />
+                    <div class="bg-color"></div>
+                  </div>
+                  <div class="text-wrapper">
+                    <p>Project description</p>
+                  </div>
+                </a>
+              </div>
+              <div class="grid-item" id="gridItem4">
+                <a class="change-color-4" href="/project">
+                  <div class="case" id="case4">
+                    <img src="images/Intro1.jpg" alt="Project 4" class="img-one" />
+                    <div class="bg-color"></div>
+                  </div>
+                  <div class="text-wrapper">
+                    <h3>01.project</h3>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    
+    
+    </section>
+
+       <!-- <div class="beckGroundImage">
+        <img src="images/Intro2.jpg" alt="">
+      </div> -->
+      
+    </main>
+
+    <script type="module" src="/src/main.js" defer></script>
+  </body>
+</html>
