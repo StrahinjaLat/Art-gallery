@@ -92,3 +92,16 @@ img {
     margin: 0 1em;
   }
 }
+
+.text {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 1000;
+  font-size: 8rem;
+  pointer-events: none;
+  color: #cfc9cb;
+  mix-blend-mode: plus-lighter;
+}

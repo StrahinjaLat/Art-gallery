@@ -10,6 +10,94 @@
     <title>Vite App</title>
   </head>
   <body class="mf-container" data-barba="wrapper" >
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="svg-filters">
+      <defs>
+        <filter id="goo-2">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="0" result="blur"></feGaussianBlur>
+          <feColorMatrix
+            in="blur"
+            mode="matrix"
+            values="	1 0 0 0 0
+                  0 1 0 0 0
+                  1 0 1 0 0
+                  0 0 0 15 -8"
+            result="goo"
+          ></feColorMatrix>
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="0.1 0.5"
+            numOctaves="5"
+            seed="2"
+            result="noise"
+          ></feTurbulence>
+          <feDisplacementMap in="goo" in2="noise" scale="0" result="displacement"></feDisplacementMap>
+          <feComposite in="SourceGraphic" in2="displacement" operator="atop"></feComposite>
+        </filter>
+        <filter id="goo-3">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="0" result="blur"></feGaussianBlur>
+          <feColorMatrix
+            in="blur"
+            mode="matrix"
+            values="	1 0 0 0 0
+                  0 1 0 0 0
+                  1 0 1 0 0
+                  0 0 0 15 -8"
+            result="goo"
+          ></feColorMatrix>
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="0.1 0.5"
+            numOctaves="5"
+            seed="2"
+            result="noise"
+          ></feTurbulence>
+          <feDisplacementMap in="goo" in2="noise" scale="0" result="displacement"></feDisplacementMap>
+          <feComposite in="SourceGraphic" in2="displacement" operator="atop"></feComposite>
+        </filter>
+        <filter id="goo-4">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="0" result="blur"></feGaussianBlur>
+          <feColorMatrix
+            in="blur"
+            mode="matrix"
+            values="	1 0 0 0 0
+                  0 1 0 0 0
+                  0 0 1 0 0
+                  0 0 0 18 -8"
+            result="goo"
+          ></feColorMatrix>
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="1 0.01"
+            numOctaves="1"
+            seed="1"
+            result="noise"
+          ></feTurbulence>
+          <feDisplacementMap in="goo" in2="noise" scale="0" result="displacement"></feDisplacementMap>
+          <feComposite in="SourceGraphic" in2="displacement" operator="atop"></feComposite>
+        </filter>
+        <filter id="goo-5">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="0" result="blur"></feGaussianBlur>
+          <feColorMatrix
+            in="blur"
+            mode="matrix"
+            values="	1 0 0 0 0
+                  0 1 0 0 0
+                  0 0 1 0 0
+                  0 0 0 14 -1"
+            result="goo"
+          ></feColorMatrix>
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="0.009 1"
+            numOctaves="1"
+            seed="1"
+            result="noise"
+          ></feTurbulence>
+          <feDisplacementMap in="goo" in2="noise" scale="0" result="displacement"></feDisplacementMap>
+          <feComposite in="SourceGraphic" in2="displacement" operator="atop"></feComposite>
+        </filter>
+      </defs>
+    </svg>
     <div id="overlay"></div>
     <div class="dd">
     <a href="/page1.html">Stranica 1</a>
@@ -163,7 +251,7 @@
               <div class="grid-item" id="gridItem1">
                 <a class="change-color-1" href="/project">
                   <div class="case" id="case1">
-                    <img src="images/Intro1.jpg" alt="Project 1" class="img-one" />
+                    <img data-filter="goo-1" data-script="filter1" src="images/Intro1.jpg" alt="Project 1" class="img-one" />
                     <div class="bg-color"></div>
                   </div>
                   <div class="text-wrapper">
@@ -174,7 +262,7 @@
               <div class="grid-item" id="gridItem2">
                 <a class="change-color-2" href="/project">
                   <div class="case" id="case2">
-                    <img src="images/Intro1.jpg" alt="Project 2" class="img-one" />
+                    <img  src="images/Intro1.jpg" alt="Project 2" class="img-one" />
                     <div class="bg-color"></div>
                   </div>
                   <div class="text-wrapper">
@@ -185,7 +273,7 @@
               <div class="grid-item" id="gridItem3">
                 <a class="change-color-3" href="/project">
                   <div class="case" id="case3">
-                    <img src="images/Intro1.jpg" alt="Project 3" class="img-one" />
+                    <img  src="images/Intro1.jpg" alt="Project 3" class="img-one" />
                     <div class="bg-color"></div>
                   </div>
                   <div class="text-wrapper">
@@ -211,7 +299,10 @@
     
     
     </section>
-
+    <div id="textElement1" class="text">TEXT1</div>
+    <div id="textElement2" class="text">TEXT1</div>
+    <div id="textElement3" class="text">TEXT1</div>
+    <div id="textElement4" class="text">TEXT1</div>
        <!-- <div class="beckGroundImage">
         <img src="images/Intro2.jpg" alt="">
       </div> -->
