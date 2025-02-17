@@ -1,15 +1,16 @@
 import barba from '@barba/core';
 import { gsap } from 'gsap';
 import { initializeAnimations } from '../JS/introAnimation'; 
+// import { initGridAnimations } from '../JS/scrollTriggerHome'; 
 import { initSlideshow } from '../JS/slideShowInit';
-
+import ScrollTrigger from "gsap/ScrollTrigger";
 export function initBarba() {
   const overlay = document.getElementById('overlay'); // Pronalaženje overlay elementa
 
- 
+  gsap.registerPlugin(ScrollTrigger); 
 
-  // Barba hook za resetovanje scroll-a na vrh
   barba.hooks.enter(() => {
+    console.log("Barba: Resetovanje scroll-a na vrh");
     window.scrollTo(0, 0); // Uveri se da je stranica uvek na vrhu
   });
 
@@ -20,6 +21,8 @@ export function initBarba() {
       {
         name: 'general-transition',  // Generalna tranzicija za sve stranice
         once: ({ next }) => {
+          console.log('General Transition: Once - Stranica učitana, proveravam da li ima slajder...');
+
           // Proveri da li postoji slajder pre nego što pozoveš funkciju
         // Proveri da li je .slides-gal prisutan
         if (next.container.querySelector('.slides-gal')) {
@@ -29,6 +32,7 @@ export function initBarba() {
           gsap.set(overlay, { opacity: 0 }); // Početno stanje overlay-a
         },
         leave: ({ current }) => {
+          console.log('General Transition: Leave - Stranica izlazi...');
           return new Promise((resolve) => {
             // Animiramo crni overlay da prekriva ceo ekran kada napuštamo stranicu
             gsap.to(overlay, {
@@ -42,7 +46,7 @@ export function initBarba() {
           });
         },
         enter: ({ next }) => {
-          console.log('Page entered (enter)');
+          console.log('General Transition: Enter - Nova stranica ulazi...');
           return new Promise((resolve) => {
             // Animiramo crni overlay da nestane kada ulazimo na novu stranicu
             gsap.to(overlay, {
@@ -65,31 +69,37 @@ export function initBarba() {
           namespace: ['home'],  // Cilj je stranica sa namespace-om 'home'
         },
         once: ({ next }) => {
+          console.log('Home Transition: Once - Stranica Home učitana');
           // Ovde možeš dodati specifične animacije za home stranicu
           gsap.set(overlay, { opacity: 0 }); // Resetovanje overlay-a pri učitavanju home stranice
           initSlideshow() 
+          // initGridAnimations() 
         },
         leave: ({ current }) => {
+          console.log('Home Transition: Leave - Home stranica izlazi...');
           return new Promise((resolve) => {
             gsap.to(overlay, {
               opacity: 1,
               duration: 0.6,
               onComplete: () => {
                 current.container.remove(); // Uklanjanje trenutne stranice
+                // ScrollTrigger.getAll().forEach(trigger => trigger.kill()); 
                 resolve();
               },
             });
           });
         },
         enter: ({ next }) => {
+          console.log('Home Transition: Enter - Nova Home stranica ulazi...');
           return new Promise((resolve) => {
             gsap.to(overlay, {
               opacity: 0,
               duration: 0.6,
               onComplete: () => {
-               
+                // initGridAnimations() 
                   initSlideshow(); // Inicijalizacija slajdera na home stranici
-                
+                  ScrollTrigger.refresh();
+
                 resolve();
               },
             });
@@ -102,24 +112,26 @@ export function initBarba() {
           namespace: ['page2'],  // Cilj je stranica sa namespace-om 'page2'
         },
         once: ({ next }) => {
-          console.log('once phase for ' + next.namespace);
+          console.log('Page2 Transition: Once - Stranica page2 učitana');
+          //console.log('once phase for ' + next.namespace);
           gsap.set(overlay, { opacity: 0 }); // Resetovanje overlay-a pri učitavanju page2
         },
         leave: ({ current }) => {
-          console.log("page2-transition: leave hook");
+          console.log('Page2 Transition: Leave - Stranica page2 izlazi...');
           return new Promise((resolve) => {
             gsap.to(overlay, {
               opacity: 1,
               duration: 0.6,
               onComplete: () => {
                 current.container.remove(); // Uklanjanje trenutne stranice
+                ScrollTrigger.getAll().forEach(trigger => trigger.kill()); 
                 resolve();
               },
             });
           });
         },
         enter: ({ next }) => {
-          console.log("page2-transition: enter hook");
+          console.log('Page2 Transition: Enter - Stranica page2 ulazi...');
           return new Promise((resolve) => {
             gsap.to(overlay, {
               opacity: 0,
@@ -161,7 +173,8 @@ export function initBarba() {
               opacity: 0,
               duration: 0.6,
               onComplete: () => {
-                
+                // initGridAnimations() 
+                ScrollTrigger.refresh();
                 resolve();
               },
             });

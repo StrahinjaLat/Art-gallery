@@ -1,0 +1,173 @@
+.projects-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  height: 100%; /* Sekcija je 100vh */
+  margin: 0; /* Uklanjamo sve default margine */
+  padding: 2rem; /* Uklanjamo sve default paddinge */
+  background-color: #000000;
+  position: relative;
+  z-index: 999;
+
+  &__container {
+    display: flex;
+    width: 100%;
+    height: 100%; /* Osiguravamo da se kontejner proširi do 100% visine */
+    gap: 2rem;
+    background-color: #000000;
+    padding: 0.5rem;
+    border: 1px solid #2c2c2c;
+    border-radius: 8px;
+    color: white;
+  }
+
+  &__left-container {
+    width: 20%;
+    padding: 2rem; /* Uklanjamo padding sa leve strane */
+    background-color: #0e0e0e;
+    height: 100vh;
+    border-radius: 8px;
+  }
+
+  &__right-container {
+    width: 80%;
+    padding: 0; /* Uklanjamo padding sa desne strane */
+
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 100%; /* Osiguravamo da desni kontener zauzima celu visinu */
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4.5rem; /* Manji razmak između kartica */
+    flex-grow: 1; /* Omogućava gridu da zauzme preostali prostor */
+    position: relative;
+  }
+  // .projects-grid__bg {
+  //   position: absolute;
+  // }
+  &__grid-item {
+    background-color: #0e0e0e;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: transform 0.3s ease;
+    border: 1px solid #2c2c2c;
+    border-radius: 8px;
+    padding: 0.5rem;
+
+    .projects-grid__link {
+      text-decoration: none;
+      display: block;
+      width: 100%;
+    }
+  }
+  &__grid-item::after {
+    content: "";
+    height: 150px;
+    width: 2px;
+    position: absolute;
+    left: -1px;
+    top: 65%;
+    transition: top, opacity;
+    transition-duration: 600ms;
+    transition-timing-function: ease;
+    background: linear-gradient(transparent, mediumslateblue, transparent);
+    opacity: 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  &__grid-item:hover:after {
+    top: 5%;
+    opacity: 1;
+  }
+
+  &__case {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover; /* Osigurava da slika popuni prostor kartice */
+    border-radius: 8px;
+    aspect-ratio: 1.5 / 1;
+  }
+
+  &__info {
+    padding: 1.5rem;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column; /* Postavljamo tekst ispod slike */
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: auto;
+    margin-top: 0; /* Uklanjamo marginu sa vrha */
+  }
+
+  &__infoo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+    margin-top: 1.5rem; /* Uklanjamo marginu sa vrha */
+    margin-bottom: 1rem;
+    padding-inline: 1rem;
+  }
+
+  &__name {
+    font-size: 1.5rem;
+  }
+  &__date {
+  }
+
+  &__text-left {
+    margin: 0; /* Uklanjamo sve default margine */
+    padding: 0; /* Uklanjamo padding */
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #333;
+  }
+
+  &__text-right {
+    margin: 0; /* Uklanjamo sve default margine */
+    padding: 0; /* Uklanjamo padding */
+    font-size: 1rem;
+    color: #666;
+    align-self: flex-end;
+  }
+
+  &__button-more {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+
+  &__more-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+}

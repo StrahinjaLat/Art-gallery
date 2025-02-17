@@ -7,12 +7,14 @@ import { setupHoverAnimation4, onMouseEnter4, onMouseLeave4 } from './hover4';
 export const setupAllHoverAnimations = () => {
   const gridItem1 = document.getElementById('gridItem1');
   const textElement1 = document.getElementById('textElement1');
+
   const gridItem2 = document.getElementById('gridItem2');
   const textElement2 = document.getElementById('textElement2');
   const gridItem3 = document.getElementById('gridItem3');
   const textElement3 = document.getElementById('textElement3');
   const gridItem4 = document.getElementById('gridItem4');
   const textElement4 = document.getElementById('textElement4');
+ 
 
   // Funkcija koja uklanja event listenere
   const removeHoverListeners = () => {

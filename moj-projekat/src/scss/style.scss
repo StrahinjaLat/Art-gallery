@@ -3,12 +3,128 @@
 @import "homeSlider";
 @import "aboute";
 @import "mouse.scss";
+@import "buttons.scss";
+@import "projecsSection";
+@import "gridGal";
+@import "footer";
+/* Resetovanje svih default margina, paddinga i drugih vrednosti za semantičke HTML5 elemente */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+mark,
+nav,
+section,
+summary {
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-size: 100%;
+  vertical-align: baseline;
+  display: block; /* Osiguravamo da su ovi elementi blokovi */
+}
+
+/* Takođe, možemo ukloniti margine i paddinge sa svih child elemenata */
+article > *,
+aside > *,
+details > *,
+figcaption > *,
+figure > *,
+footer > *,
+header > *,
+main > *,
+mark > *,
+nav > *,
+section > *,
+summary > * {
+  margin: 0;
+  padding: 0;
+}
+
+/* Takođe, resetovanje slika, linkova i sl. */
+img,
+picture,
+video,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none; /* Uklanja underline sa linkova */
+  color: inherit; /* Ponaša se kao tekst */
+}
+
+ul,
+ol {
+  list-style: none; /* Uklanja bullet tačke sa lista */
+  margin: 0;
+  padding: 0;
+}
+
+button,
+input,
+select,
+textarea {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+}
+
+table {
+  border-collapse: collapse; /* Spaja granice tabele */
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* Osiguravamo da svi elementi uključuju border i padding u ukupnu veličinu */
+}
+
+.cinzel-bold {
+  font-family: "Cinzel", serif;
+  font-optical-sizing: auto;
+  font-weight: 700; // Težina fonta 700 (bold)
+  font-style: normal;
+}
+.cinzel-regular {
+  font-family: "Cinzel", serif;
+  font-optical-sizing: auto;
+  font-weight: 400; // Težina fonta 400 (regular)
+  font-style: normal;
+}
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  appearance: none;
+  border: none;
+  background: none;
+  font: inherit;
+  cursor: pointer;
+}
 body {
   /* Sakrij sadržaj dok se stranica učitava */
-  background-color: black;
+  background-color: #1c1d20;
+  height: 100%;
+
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Cinzel", serif;
+  font-optical-sizing: auto;
+  font-weight: 400; // Težina fonta 400 (regular)
+  font-style: normal;
+}
+p {
+  margin: 0; /* Uklanja sve margine sa svih strana */
 }
 
 h1,
