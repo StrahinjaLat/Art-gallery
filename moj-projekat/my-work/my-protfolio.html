@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Encoding -->
+    <meta charset="UTF-8">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Explore my personal portfolio where I explain how I designed and developed my website. Learn about the technologies I used, SEO best practices, and the user experience elements that make my website stand out.">
+    <meta name="keywords" content="portfolio, web development, front-end development, UX design, UI design, SEO, JavaScript, HTML, CSS, web technologies, responsive design, front-end developer, personal portfolio">
+    <meta name="author" content="Your Name or Company">
+
+    <!-- Open Graph (for social media sharing) -->
+    <meta property="og:title" content="Personal Portfolio: Web Development & Design - Your Name">
+    <meta property="og:description" content="Discover how I created my portfolio website, the technologies I used, and the approach I took to ensure a responsive, user-friendly design. Learn about my front-end development process and SEO optimizations.">
+    <meta property="og:image" content="https://your-site.com/portfolio-image.jpg"> <!-- A screenshot or image representing your portfolio -->
+    <meta property="og:url" content="https://your-site.com/my-work">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card (for Twitter sharing) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Personal Portfolio: Web Development & Design - Your Name">
+    <meta name="twitter:description" content="Explore my personal portfolio website where I showcase my skills in front-end development, UX/UI design, and SEO best practices.">
+    <meta name="twitter:image" content="https://your-site.com/portfolio-image.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/vite.svg">
+
+    <!-- Preload CSS -->
+    <link rel="preload" href="/src/style.css" as="style">
+
+    <!-- Google Fonts Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+
+    <!-- Viewport for responsiveness -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title for SEO -->
+    <title>My Personal Portfolio: Web Development & Design - Your Name</title>
+</head>
+
+  <body data-barba="wrapper" class="worke-b">
+    <div class="ddd">
+      <a href="/index.html">Home</a>
+      <a href="/my-work/my-protfolio.html">Work</a> 
+      <a href="/page2.html">Page 2</a> 
+    </div>
+    <button
+      class="button"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+      onclick="toggleMenu()"
+    >
+      <div class="slider" id="slider">
+        <div class="el" id="menuLabel">
+          <span>Menu</span>
+        </div>
+        <div class="el" id="closeLabel">
+          <span>Close</span>
+        </div>
+      </div>
+    </button>
+    <canvas id="canvas"></canvas>
+    <!-- Menu - sadržaj koji se proširuje uz animaciju -->
+    <nav id="menu" class="menu" aria-hidden="true">
+      <div class="menu-links">
+        <ul>
+          <li class="linkContainer"><a href="/" class="link">Home</a></li>
+          <li class="linkContainer"><a href="/about" class="link">About</a></li>
+          <li class="linkContainer">
+            <a href="/workepage" class="link">Services</a>
+          </li>
+          <li class="linkContainer">
+            <a href="/contact" class="link">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <svg id="curve-svg" class="curve-svg" xmlns="http://www.w3.org/2000/svg">
+      <path id="curve-path" d="M0 300 Q50 0 100 300 L100 600 Q50 900 0 600 Z" />
+    </svg>
+
+    <div class="titlesForPages">
+      <div class="titlesForPages__home ap" >Home</div>
+      <div class="titlesForPages__work ap" >My Protfolio</div>
+      <div class="titlesForPages__pro ap" >Lemonaide</div>
+    </div>
+   
+    <main data-barba="container" data-barba-namespace="protfolio">
+      <div class="bg">
+        <section class="chapter-section an">
+          <header class="chapter-title">
+            <h2>CHAPTER 1 / Research</h2>
+          </header>
+
+          <div class="con-s">
+            <!-- <article class="project-details" aria-labelledby="client-details">
+              <header>
+                <h2 class="title" id="client-details">___CLIENT DETAILS</h2>
+                <h3 class="subtitle">Understanding the company</h3>
+                <div class="linee"></div>
+              </header>
+
+              <div class="content-container">
+            
+                <section class="left-section">
+                  <div class="about" aria-labelledby="about">
+                    <h3 id="about">About</h3>
+                    <p>
+                      It’s a watch first and foremost. Cronologics enables
+                      high-quality, brand specific, customizable wearable
+                      products within a scalable Android-based architecture.
+                    </p>
+                  </div>
+
+                  <div
+                    class="design-challenge"
+                    aria-labelledby="design-challenge"
+                  >
+                    <h3 id="design-challenge">Design Challenge</h3>
+                    <p>
+                      What if your smartwatch software worked on the hardware of
+                      the biggest watch brands like Rolex, Breitling, Omega,
+                      Cartier, Fossil, etc.? The Cronologics operating system
+                      aimed to partner with watch brands to bring technology to
+                      traditional watches. The lack of innovation in traditional
+                      watch brand hardware should not limit today's modern-day
+                      watch users. How might I improve the way that people know
+                      and trust their smartwatches?
+                    </p>
+                  </div>
+                  <div class="tags"></div>
+                </section>
+              </div>
+            </article> -->
+            <article class="project-details" aria-labelledby="project-details">
+              <header>
+                <h2 class="title" id="project-details">My Portfolio Project</h2>
+                <h3 class="subtitle">Project Overview and Challenges</h3>
+                <div class="linee"></div>
+              </header>
+            
+              <!-- Sekcija 1: About the Project, Design Problems, Coding Challenges (u Grid-u) -->
+              <section class="project-description">
+                <div class="grid-container">
+                  <!-- About the Project -->
+                  <div class="grid-item about-project">
+                    <h3>About the Project</h3>
+                    <p>
+                      This portfolio project showcases my front-end development skills with a focus on creating dynamic, interactive web experiences. The website is packed with smooth animations, custom transitions, and an engaging design. My goal was to present my work while also highlighting modern web development techniques.
+                    </p>
+                  </div>
+            
+                  <!-- Design Problems -->
+                  <div class="grid-item design-problems">
+                    <h3>Design Problems</h3>
+                    <p>
+                      The biggest challenge was designing a site that is both visually engaging and easy to navigate. I had to ensure the animations did not overwhelm the user experience. Achieving a balance between creative animations and user experience was the key challenge.
+                    </p>
+                  </div>
+            
+                  <!-- Coding Challenges -->
+                  <div class="grid-item coding-challenges">
+                    <h3>Coding Challenges</h3>
+                    <p>
+                      Implementing complex animations and transitions while maintaining SEO-friendliness and performance was tough. I had to optimize animations, minimize JavaScript execution time, and make sure images and assets were optimized for fast loading.
+                    </p>
+                  </div>
+                </div>
+              </section>
+              <section class="seo-technologies" aria-labelledby="seo-technologies-heading">
+                <h2 class="seo-technologies__title" id="seo-technologies-heading">SEO Optimization and Technologies Used</h2>
+              
+                <!-- Separator line -->
+                <div class="seo-technologies__separator"></div>
+              
+                <!-- SEO Optimization Section -->
+                <div class="seo-technologies__section seo-technologies__seo-explanation">
+                  <h3 class="seo-technologies__subtitle">SEO Optimization</h3>
+                  <p class="seo-technologies__description">
+                    For SEO optimization, I focused on several critical aspects to enhance search engine ranking and accessibility:
+                  </p>
+                  <ul class="seo-technologies__list">
+                    <li class="seo-technologies__item">
+                      <div class="seo-technologies__card">
+                        <span class="seo-technologies__icon seo-technologies__icon--semantic-html"></span>
+                        <h4 class="seo-technologies__card-title">Semantic HTML</h4>
+                        <p>Ensuring proper use of HTML5 semantic elements like <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code>, and <code>&lt;section&gt;</code> to make the content more understandable for search engines.</p>
+                      </div>
+                    </li>
+                    <li class="seo-technologies__item">
+                      <div class="seo-technologies__card">
+                        <span class="seo-technologies__icon seo-technologies__icon--meta-tags"></span>
+                        <h4 class="seo-technologies__card-title">Meta Tags</h4>
+                        <p>Adding relevant <code>&lt;meta&gt;</code> tags like descriptions, keywords, and Open Graph tags to enhance visibility on search engines and social platforms.</p>
+                      </div>
+                    </li>
+                    <li class="seo-technologies__item">
+                      <div class="seo-technologies__card">
+                        <span class="seo-technologies__icon seo-technologies__icon--responsive-design"></span>
+                        <h4 class="seo-technologies__card-title">Responsive Design</h4>
+                        <p>Ensuring the website is fully responsive and provides a seamless experience across different devices, essential for mobile-first indexing.</p>
+                      </div>
+                    </li>
+                    <li class="seo-technologies__item">
+                      <div class="seo-technologies__card">
+                        <span class="seo-technologies__icon seo-technologies__icon--alt-text"></span>
+                        <h4 class="seo-technologies__card-title">Alt Text for Images</h4>
+                        <p>Providing descriptive alt text for images to ensure they are accessible and indexable by search engines.</p>
+                      </div>
+                    </li>
+                    <li class="seo-technologies__item">
+                      <div class="seo-technologies__card">
+                        <span class="seo-technologies__icon seo-technologies__icon--page-speed"></span>
+                        <h4 class="seo-technologies__card-title">Page Speed Optimization</h4>
+                        <p>Reducing page load times by lazy loading images and compressing CSS/JS files, ensuring fast performance and a better user experience.</p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              
+                <!-- Separator line -->
+                <div class="seo-technologies__separator"></div>
+              
+                <!-- Technologies Used Section -->
+                <div class="seo-technologies__section seo-technologies__technologies-used">
+                  <h3 class="seo-technologies__subtitle">Technologies Used</h3>
+                  <p class="seo-technologies__description">
+                    The following technologies were used to build the project:
+                  </p>
+                  <ul class="seo-technologies__list">
+                    <li class="seo-technologies__item">
+                      <div class="seo-technologies__card">
+                        <span class="seo-technologies__icon seo-technologies__icon--html-css"></span>
+                        <h4 class="seo-technologies__card-title">HTML5 & CSS3</h4>
+                        <p>The structure and styling of the website, with a focus on responsiveness and accessibility.</p>
+                      </div>
+                    </li>
+                    <li class="seo-technologies__item">
+                      <div class="seo-technologies__card">
+                        <span class="seo-technologies__icon seo-technologies__icon--javascript"></span>
+                        <h4 class="seo-technologies__card-title">JavaScript</h4>
+                        <p>Used for interactive features, animations, and transitions. I used <code>GSAP</code> for smooth animations and <code>Barba.js</code> for seamless page transitions.</p>
+                      </div>
+                    </li>
+                    <li class="seo-technologies__item">
+                      <div class="seo-technologies__card">
+                        <span class="seo-technologies__icon seo-technologies__icon--gsap"></span>
+                        <h4 class="seo-technologies__card-title">GSAP</h4>
+                        <p>A JavaScript library that allowed me to create smooth and high-performance animations and transitions across the website.</p>
+                      </div>
+                    </li>
+                    <li class="seo-technologies__item">
+                      <div class="seo-technologies__card">
+                        <span class="seo-technologies__icon seo-technologies__icon--barba-js"></span>
+                        <h4 class="seo-technologies__card-title">Barba.js</h4>
+                        <p>A library for creating smooth page transitions by loading pages without full reloads, making the site feel faster and more interactive.</p>
+                      </div>
+                    </li>
+                    <li class="seo-technologies__item">
+                      <div class="seo-technologies__card">
+                        <span class="seo-technologies__icon seo-technologies__icon--svg"></span>
+                        <h4 class="seo-technologies__card-title">SVGs</h4>
+                        <p>Used for scalable vector graphics to ensure high-quality images and icons that are lightweight and resolution-independent.</p>
+                      </div>
+                    </li>
+                    <li class="seo-technologies__item">
+                      <div class="seo-technologies__card">
+                        <span class="seo-technologies__icon seo-technologies__icon--performance-optimization"></span>
+                        <h4 class="seo-technologies__card-title">Performance Optimization</h4>
+                        <p>Minifying CSS and JavaScript files, lazy loading images, and serving images in WebP format for improved load times and performance.</p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </section>
+              
+            </article>
+            
+            
+          </div>
+        </section>
+        <div class="chapter-section">
+            <div class="chapter-title">
+              <h2>CHAPTER 2 / INTERACTIONS</h2>
+            </div>
+            <div class="con-s">
+                <h2 class="title">____ WIREFRAMES</h2>
+                <h3 class="subtitle">Low fidelity interactions.</h3>
+                <div class="linee"></div>
+          
+                <div class="lo-fi-img">
+                  <img :src="imgLo" alt="" />
+                </div>
+                <div class="lo-fi-img">
+                  <img :src="imgLo" alt="" />
+                </div>
+              </div>
+      </div>
+      <div class="chapter-section">
+        <div class="chapter-title">
+          <h2>CHAPTER 3 / EXECUTION</h2>
+        </div>
+        <div class="con-s">
+          <h2 class="title">____ HIGH FIDELITY DESIGNS</h2>
+          <h3 class="subtitle">Finalizing visual designs.</h3>
+          <div class="linee"></div>
+    
+          <div class="hi-fi-img">
+            <img :src="wireframe" alt="" />
+          </div>
+    
+          <div class="section-pages">
+            <div class="hi-fi-imges">
+              <img :src="SavedCars" alt="" />
+            </div>
+            <div class="description">
+              <h1>Notification System UI</h1>
+              <h2>Dropdown notifications from launcher</h2>
+              <p>
+                There are many types of notifications across iOS and Android. In general, they will be
+                laid out in a similar paradigm with the main difference being whether actions are shown
+                at the end of the notification. Notifications received recently will be displayed full
+                screen first in the UI, followed by the list of all available notifications.
+              </p>
+            </div>
+          </div>
+          <div class="section-pages">
+            <div class="hi-fi-imges">
+                <video  autoplay loop muted>
+                    <source src="/videos/text-kompresovan.webm" type="video/webm">
+                    <!-- Dodaj fallback formate ako želiš -->
+                    <source src="/videos/ScrollAnimation-kompresovan.mp4" type="video/mp4">
+                    <source src="/videos/ScrollAnimation-kompresovan.ogv" type="video/ogg">
+                    Vaš preglednik ne podržava video tag.
+                  </video>
+            </div>
+            <div class="description">
+              <h1>Notification System UI</h1>
+              <h2>Dropdown notifications from launcher</h2>
+              <p>
+                There are many types of notifications across iOS and Android. In general, they will be
+                laid out in a similar paradigm with the main difference being whether actions are shown
+                at the end of the notification. Notifications received recently will be displayed full
+                screen first in the UI, followed by the list of all available notifications.
+              </p>
+            </div>
+          </div>
+          <div class="section-pages">
+            <div class="hi-fi-imges">
+              <!-- Video umesto slike -->
+    <video  autoplay loop muted>
+        <source src="/videos/Scroll-kompresovan.webm" type="video/webm">
+        <!-- Dodaj fallback formate ako želiš -->
+        <source src="/videos/ScrollAnimation-kompresovan.mp4" type="video/mp4">
+        <source src="/videos/ScrollAnimation-kompresovan.ogv" type="video/ogg">
+        Vaš preglednik ne podržava video tag.
+      </video>
+            </div>
+            <div class="description">
+              <h1>Notification System UI</h1>
+              <h2>Dropdown notifications from launcher</h2>
+              <p>
+                There are many types of notifications across iOS and Android. In general, they will be
+                laid out in a similar paradigm with the main difference being whether actions are shown
+                at the end of the notification. Notifications received recently will be displayed full
+                screen first in the UI, followed by the list of all available notifications.
+              </p>
+            </div>
+          </div>
+          <div class="section-pages">
+            <div class="hi-fi-imges">
+              <img :src="ReviewPage" alt="" />
+            </div>
+            <div class="description">
+              <h1>Notification System UI</h1>
+              <h2>Dropdown notifications from launcher</h2>
+              <p>
+                There are many types of notifications across iOS and Android. In general, they will be
+                laid out in a similar paradigm with the main difference being whether actions are shown
+                at the end of the notification. Notifications received recently will be displayed full
+                screen first in the UI, followed by the list of all available notifications.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script type="module" src="/src/main.js" defer></script>
+  </body>
+</html>

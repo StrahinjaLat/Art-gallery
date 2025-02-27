@@ -1,0 +1,133 @@
+.work__grid__con {
+  margin: 0 auto;
+  padding-inline: 12vw;
+}
+
+.work__grid__subtitle {
+  width: 100%;
+  display: flex;
+  font-size: 0.6em;
+  line-height: 1.065;
+
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.5;
+  padding-bottom: clamp(1.5em, 4vw, 2.5em);
+}
+
+.work__grid__flex-item:nth-child(1) {
+  width: 44%;
+  padding-left: 1rem;
+}
+.work__grid__flex-item:nth-child(2) {
+  width: 20%;
+}
+.work__grid__flex-item:nth-child(3) {
+  width: 20%;
+}
+.work__grid__flex-item:nth-child(4) {
+  width: 15%;
+  padding-right: 1rem;
+  text-align: right;
+}
+
+.small {
+  padding-bottom: 3rem;
+}
+
+.vissible {
+  max-height: calc(clamp(1.75em, 2.3vw, 2.5em) + 4.4em);
+  opacity: 1;
+  transition: max-height 1s ease-in-out, opacity 1s ease-in-out;
+}
+
+.hidden {
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 1s ease-in-out, opacity 1s ease-in-out;
+}
+.stripe-animete {
+  width: 100%;
+  background-color: rgba(28, 29, 32, 0.175);
+  height: 1px;
+}
+
+.work__grid__list__row {
+  padding: 2em 0 2em 0;
+  font-size: 1em;
+  line-height: 1.66;
+}
+.work__grid__list__row {
+  display: flex;
+  align-items: center;
+}
+.work__grid__list {
+  //   padding-inline: 12vw;
+  transition: all 0.7s cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+.work__grid__flex-item__row:nth-child(1) {
+  width: 44%;
+  padding-left: 4vw;
+  transition: all 0.3 scubic-bezier (0.7, 0, 0.3, 1);
+  font-size: clamp(1.55em, 2.3vw, 2.5em);
+}
+.work__grid__flex-item__row:nth-child(2) {
+  width: 20%;
+}
+.work__grid__flex-item__row:nth-child(3) {
+  width: 22%;
+}
+.work__grid__flex-item__row:nth-child(4) {
+  width: 14%;
+  text-align: right;
+  padding-right: 4vw;
+}
+
+.card-layout {
+  display: none;
+}
+
+.work__grid__card {
+  display: flex;
+
+  width: 100%;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+
+  border-radius: 10px;
+
+  width: 50%;
+}
+
+.card-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+}
+
+.card-title {
+  padding: 10px;
+
+  font-size: 18px;
+}
+
+.card-divider {
+  margin: 0;
+  border: 1px solid #ddd;
+}
+
+.card-content {
+  display: flex;
+  padding: 10px;
+}
+
+.card-text-left,
+.card-text-right {
+  width: 50%;
+  padding: 5px;
+}

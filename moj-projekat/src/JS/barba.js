@@ -1,186 +1,307 @@
 import barba from '@barba/core';
 import { gsap } from 'gsap';
-import { initializeAnimations } from '../JS/introAnimation'; 
+import { introAnimatioScreen  } from '../JS/introAnimation';
+import { letterAnimations } from '../JS/letterScrollAnimation'; 
 // import { initGridAnimations } from '../JS/scrollTriggerHome'; 
 import { initSlideshow } from '../JS/slideShowInit';
+import { animationScrool } from '../JS/galleryScrool';
+import { resizeSVG } from '../JS/SVGTransitionPage';
+import { hoverGlove  } from '../JS/hoverCardsAnimation';
 import ScrollTrigger from "gsap/ScrollTrigger";
-export function initBarba() {
-  const overlay = document.getElementById('overlay'); // Pronalaženje overlay elementa
+import 'scroll-restoration-polyfill';
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
+// Registruj plugin ako već nije registrovan
+gsap.registerPlugin(ScrollToPlugin);
+
+
+
+
+
+
+export function initBarba() {
+  
+  const curveSvg = document.querySelector('.curve-svg')
+  
   gsap.registerPlugin(ScrollTrigger); 
 
-  barba.hooks.enter(() => {
-    console.log("Barba: Resetovanje scroll-a na vrh");
-    window.scrollTo(0, 0); // Uveri se da je stranica uvek na vrhu
+
+  // Onemogući browser scroll restoraciju
+  if (history.scrollRestoration) {
+    history.scrollRestoration = 'manual';
+  }
+
+
+  function startVideo() {
+    const videos = document.querySelectorAll('video');
+     videos.forEach(video => {
+         video.play();
+     })
+  }
+
+
+  barba.hooks.beforeEnter((data) => {
+    document.body.style.overflow = '';
+    document.documentElement.style.overflow = '';
+    requestAnimationFrame(() => {
+      window.scrollTo(0, 0); // Postavi skrol bez animacije odmah na početak
+    });
+    resizeSVG()
+
+  });
+  
+  barba.hooks.enter(({ next }) => {
+    console.log('Global Enter Hook: Pre tranzicije za stranicu', next.namespace);
+      
+    // Pokreni funkcije specifične za stranicu
+    if (next.namespace.includes('home')) {
+     
+      initSlideshow();  
+      letterAnimations();
+      animationScrool(); 
+    }
+  
+    if (next.namespace.includes('protfolio') || next.namespace.includes('lemonaide')) {
+      hoverGlove(); 
+      startVideo()
+      
+    
+      
+    }
+  
+    if (next.namespace.includes('page2')) {
+      
+     
+    }
+
+    ScrollTrigger.refresh();
   });
 
-  // Inicijalizacija Barba.js
+  barba.hooks.leave(({ current }) => {
+   
+    ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+   
+  });
+
   barba.init({
+    // sync: true, // Za bolju sinhronizaciju animacija
+    preventScroll: true,
     debug: true,
     transitions: [
-      {
-        name: 'general-transition',  // Generalna tranzicija za sve stranice
-        once: ({ next }) => {
-          console.log('General Transition: Once - Stranica učitana, proveravam da li ima slajder...');
 
-          // Proveri da li postoji slajder pre nego što pozoveš funkciju
-        // Proveri da li je .slides-gal prisutan
-        if (next.container.querySelector('.slides-gal')) {
-          initSlideshow();  // Inicijalizuj slajder
+      {
+        name: 'once transitions all',
+       
+        once: async ({ next }) => { // Postavi 'async' kako bi mogao koristiti 'await'
+          // Osvežavanje ScrollTrigger-a na početku
+          ScrollTrigger.refresh();
+     
+         
+        
+        if (next.namespace === 'home') {
+          // introAnimatioScreen() 
+          initSlideshow();
+        letterAnimations();
+        animationScrool();
         }
+      
 
-          gsap.set(overlay, { opacity: 0 }); // Početno stanje overlay-a
-        },
-        leave: ({ current }) => {
-          console.log('General Transition: Leave - Stranica izlazi...');
-          return new Promise((resolve) => {
-            // Animiramo crni overlay da prekriva ceo ekran kada napuštamo stranicu
-            gsap.to(overlay, {
-              opacity: 1,
-              duration: 0.6,
-              onComplete: () => {
-                current.container.remove(); // Uklanjamo trenutni sadržaj stranice
-                resolve(); // Završavamo animaciju i prelazimo na sledeći korak
-              },
-            });
-          });
-        },
-        enter: ({ next }) => {
-          console.log('General Transition: Enter - Nova stranica ulazi...');
-          return new Promise((resolve) => {
-            // Animiramo crni overlay da nestane kada ulazimo na novu stranicu
-            gsap.to(overlay, {
-              opacity: 0,
-              duration: 0.6,
-              onComplete: () => {
-                // Proveri da li je .slides-gal prisutan
-                if (next.container.querySelector('.slides-gal')) {
-                  initSlideshow();  // Inicijalizuj slajder
-                }
-                resolve();  // Završavamo animaciju i pokazujemo sadržaj nove stranice
-              },
-            });
-          });
-        },
-      },
-      {
-        name: 'home-transition', // Tranzicija za home stranicu
-        to: {
-          namespace: ['home'],  // Cilj je stranica sa namespace-om 'home'
-        },
-        once: ({ next }) => {
-          console.log('Home Transition: Once - Stranica Home učitana');
-          // Ovde možeš dodati specifične animacije za home stranicu
-          gsap.set(overlay, { opacity: 0 }); // Resetovanje overlay-a pri učitavanju home stranice
-          initSlideshow() 
-          // initGridAnimations() 
-        },
-        leave: ({ current }) => {
-          console.log('Home Transition: Leave - Home stranica izlazi...');
-          return new Promise((resolve) => {
-            gsap.to(overlay, {
-              opacity: 1,
-              duration: 0.6,
-              onComplete: () => {
-                current.container.remove(); // Uklanjanje trenutne stranice
-                // ScrollTrigger.getAll().forEach(trigger => trigger.kill()); 
-                resolve();
-              },
-            });
-          });
-        },
-        enter: ({ next }) => {
-          console.log('Home Transition: Enter - Nova Home stranica ulazi...');
-          return new Promise((resolve) => {
-            gsap.to(overlay, {
-              opacity: 0,
-              duration: 0.6,
-              onComplete: () => {
-                // initGridAnimations() 
-                  initSlideshow(); // Inicijalizacija slajdera na home stranici
-                  ScrollTrigger.refresh();
+       if (next.namespace === 'protfolio' || next.namespace === 'lemonaide') {
+         hoverGlove();
+         hoverGlove(); 
+      startVideo()
+       }
+    
 
-                resolve();
-              },
-            });
-          });
         },
       },
+   
+
+     
+
       {
-        name: 'page2-transition', // Tranzicija za page2
-        to: {
-          namespace: ['page2'],  // Cilj je stranica sa namespace-om 'page2'
-        },
-        once: ({ next }) => {
-          console.log('Page2 Transition: Once - Stranica page2 učitana');
-          //console.log('once phase for ' + next.namespace);
-          gsap.set(overlay, { opacity: 0 }); // Resetovanje overlay-a pri učitavanju page2
-        },
-        leave: ({ current }) => {
-          console.log('Page2 Transition: Leave - Stranica page2 izlazi...');
-          return new Promise((resolve) => {
-            gsap.to(overlay, {
-              opacity: 1,
-              duration: 0.6,
-              onComplete: () => {
-                current.container.remove(); // Uklanjanje trenutne stranice
-                ScrollTrigger.getAll().forEach(trigger => trigger.kill()); 
-                resolve();
-              },
-            });
-          });
-        },
-        enter: ({ next }) => {
-          console.log('Page2 Transition: Enter - Stranica page2 ulazi...');
-          return new Promise((resolve) => {
-            gsap.to(overlay, {
-              opacity: 0,
-              duration: 0.6,
-              onComplete: () => {
-               
-                // Animacija pri ulasku na page2
-                resolve();
-              },
-            });
-          });
-        },
-      },
-      {
-        name: 'from-page2-transition', // Tranzicija pri povratku sa page2
+        name: 'home-to-work-transition',
         from: {
-          namespace: ['page2'],  // Iz page2
+          namespace: ['home'],
         },
         to: {
-          namespace: ['home']
+          namespace: ['protfolio', 'lemonaide'],
         },
         leave: ({ current }) => {
+          console.log('Home to Work Transition: Leave - Napustamo Home stranicu');
           return new Promise((resolve) => {
-            gsap.to(overlay, {
-              opacity: 1,
-              duration: 0.6,
+            const tl = gsap.timeline({
               onComplete: () => {
+                current.container.remove();
+                resolve();
+              }
+            });
+            tl.to(curveSvg, {
+              y: '-24.2%',
+              duration: 1.5,
+              ease: 'power3.inOut',
+            });
+
+       
+
+   
+          
+      
+          });
+        },
+       
+        enter: ({ next }) => {
+          console.log('Home to Work Transition: Enter - Ulazimo na Work stranicu');
+          
+          return new Promise((resolve) => {
+            const tl = gsap.timeline({
+              onComplete: () => {
+                const correction = 45 + 24.2 + 100
+                gsap.set(curveSvg, {
+                  y: `${correction}%`,
+                })
+                ScrollTrigger.refresh();
+                resolve();
+              }
+            });
+            
+          
+            
+          
+
+        // Prepoznajemo trenutni `namespace`
+        const currentNamespace = next.namespace;
+        console.log('Trenutni namespace:', currentNamespace); // Debugging output
+  
+        let targetTitle = null;
+  
+        // Prepoznavanje naslova bazirano na namespace
+        if (currentNamespace.includes('protfolio')) {
+          targetTitle = document.querySelector('.titlesForPages__work');
+        } else if (currentNamespace.includes('lemonaide')) {
+          targetTitle = document.querySelector('.titlesForPages__pro');
+        }
+  
+  
+         gsap.set('.an', { y: "70%" }); 
+        gsap.set(targetTitle, { y: "100%" });
+   
+
+      
+        tl.to(targetTitle, {
+          opacity: 1,
+          y: "0",
+          duration: 0.75,
+          
+          ease: "power4.out"
+        });
+      
+        tl.addLabel('start', '-=0.3');
+
+      tl.to(curveSvg, {
+        y: '-100%',
+        duration: 1.5,
+        ease: 'power3.inOut'
+      },'start' );
+
+      tl.to(targetTitle, {
+        opacity: 0,
+        y: "-300%",
+        duration: 0.75,
+        
+        ease: "power4.out"
+      } ,'start+=0.5');
+        
+           
+            tl.to('.an', {
+              y: "0",  
+              duration: 1.5,
+              delay: 0.35,
+              ease: "power4.out"
+            }, 'start'); 
+         
+          });
+        },
+     
+      
+
+      },
+
+      {
+        name: 'work-to-home-transition',
+        from: {
+          namespace: ['protfolio', 'lemonaide'],
+        },
+        to: {
+          namespace: ['home'],
+        },
+        leave: ({ current }) => {
+          console.log('Work to Home Transition: Leave - Napustamo Work stranicu');
+          return new Promise((resolve) => {
+            gsap.to(curveSvg, {
+              y: '-24.2%',
+              duration: 1.5,
+              ease: 'power3.inOut',
+              onComplete: () => {
+                current.container.remove();
                 
-                current.container.remove(); // Uklanjanje trenutne stranice (page2)
                 resolve();
               },
             });
           });
         },
         enter: ({ next }) => {
-          initSlideshow() 
+          console.log('Work to Home Transition: Enter - Ulazimo na Home stranicu');
           return new Promise((resolve) => {
-            gsap.to(overlay, {
-              opacity: 0,
-              duration: 0.6,
+
+            const tl = gsap.timeline({
               onComplete: () => {
-                // initGridAnimations() 
+                const correction = 45 + 24.2 + 100
+                gsap.set(curveSvg, {
+                  y: `${correction}%`,
+                })
                 ScrollTrigger.refresh();
                 resolve();
               },
             });
+            gsap.set('.titlesForPages__home', { y: "100%" });
+
+            tl.to('.titlesForPages__home', {
+              opacity: 1,
+              y: "0",
+              duration: 0.75,
+              
+              ease: "power4.out"
+            });
+
+            tl.addLabel('start', '-=0.3');
+
+            tl.to(curveSvg, {
+              y: '-100%',
+                  duration: 1.5,
+                  ease: 'power3.inOut',
+              
+              
+            }, 'start' );
+            tl.to('.titlesForPages__home', {
+              opacity: 0,
+              y: "-300%",
+              duration: 0.75,
+              
+              ease: "power4.out"
+              
+              
+            },'start+=0.5');
           });
         },
       },
+
+        
+    
     ],
   });
+
 }
+
+
+

@@ -7,12 +7,170 @@ import { MenuAnimations } from './JS/menu';
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger"; 
 import Lenis from "@studio-freight/lenis"; 
-import SplitType from 'split-type';
+import * as THREE from 'three';
 import { animationScrool } from './JS/galleryScrool';
 import emailjs from 'emailjs-com';
+import  {buttonsActive} from  './JS/Work-Page/buttonsActive';
 
 // Registrujte ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
+
+buttonsActive()
+
+
+
+
+// class Smoke {
+
+//     constructor(options) {
+//         const defaults = {
+//             width: window.innerWidth,
+//             height: window.innerHeight
+//         };
+
+//         Object.assign(this, options, defaults);
+//         this.onResize = this.onResize.bind(this);
+
+//         this.addEventListeners();
+//         this.init();
+//     }
+
+//     init() {
+//         const container = document.getElementById('smoke-container');
+//         const { width, height } = this;
+
+//         this.clock = new THREE.Clock();
+//         this.renderer = new THREE.WebGLRenderer({ alpha: true });
+
+//         // Prvo setujemo canvas da se uklopi sa roditeljskim elementom
+//         this.renderer.setSize(container.offsetWidth, container.offsetHeight);
+
+//         this.scene = new THREE.Scene();
+
+// 		this.scene.background = new THREE.Color(0x000000);
+
+//         const meshGeometry = new THREE.BoxGeometry(200, 200, 200);
+//         const meshMaterial = new THREE.MeshLambertMaterial({
+//             color: 0xaa6666,
+//             wireframe: false
+//         });
+//         this.mesh = new THREE.Mesh(meshGeometry, meshMaterial);
+
+//         this.cubeSineDriver = 0;
+
+//         this.addCamera();
+//         this.addLights();
+//         this.addParticles();
+//         // this.addBackground();
+
+//         container.appendChild(this.renderer.domElement);
+//     }
+
+//     evolveSmoke(delta) {
+//         const { smokeParticles } = this;
+
+//         let smokeParticlesLength = smokeParticles.length;
+
+//         while (smokeParticlesLength--) {
+//             smokeParticles[smokeParticlesLength].rotation.z += delta * 0.2;
+//         }
+//     }
+
+//     addLights() {
+//         const { scene } = this;
+//         const light = new THREE.DirectionalLight(0xffffff, 0.75);
+//         light.position.set(-1, 0, 1);
+//         scene.add(light);
+//     }
+
+//     addCamera() {
+//         const { scene } = this;
+//         const camera = this.camera = new THREE.PerspectiveCamera(75, this.width / this.height, 1, 10000);
+//         camera.position.z = 1000;
+//         scene.add(camera);
+//     }
+
+//     addParticles() {
+//         const { scene } = this;
+//         const textureLoader = new THREE.TextureLoader();
+//         const smokeParticles = this.smokeParticles = [];
+
+//         textureLoader.load('https://rawgit.com/marcobiedermann/playground/master/three.js/smoke-particles/dist/assets/images/clouds.png', texture => {
+//             const smokeMaterial = new THREE.MeshLambertMaterial({
+//                 color: 0xffffff,
+// 				// color: 0x777777, 
+//                 map: texture,
+//                 transparent: true,
+// 				//  opacity: 0.4
+//             });
+//             smokeMaterial.map.minFilter = THREE.LinearFilter;
+//             const smokeGeometry = new THREE.PlaneGeometry(300, 300);
+
+//             const smokeMeshes = [];
+//             let limit = 150;
+
+//             while (limit--) {
+//                 smokeMeshes[limit] = new THREE.Mesh(smokeGeometry, smokeMaterial);
+//                 smokeMeshes[limit].position.set(Math.random() * 500 - 250, Math.random() * 500 - 250, Math.random() * 1000 - 100);
+//                 smokeMeshes[limit].rotation.z = Math.random() * 360;
+//                 smokeParticles.push(smokeMeshes[limit]);
+//                 scene.add(smokeMeshes[limit]);
+//             }
+//         });
+//     }
+
+  
+
+
+
+//     render() {
+//         const { mesh } = this;
+//         let { cubeSineDriver } = this;
+
+//         cubeSineDriver += 0.01;
+
+//         mesh.rotation.x += 0.005;
+//         mesh.rotation.y += 0.01;
+//         mesh.position.z = 100 + Math.sin(cubeSineDriver) * 500;
+
+//         this.renderer.render(this.scene, this.camera);
+//     }
+
+//     update() {
+//         this.evolveSmoke(this.clock.getDelta());
+//         this.render();
+
+//         requestAnimationFrame(this.update.bind(this));
+//     }
+
+//     onResize() {
+//         // Ove dimenzije preuzimamo iz roditeljskog elementa
+//         const container = document.getElementById("smoke-container");
+//         this.renderer.setSize(container.offsetWidth, container.offsetHeight); // Set canvas size to match container size
+
+//         const { camera } = this;
+//         const windowWidth = container.offsetWidth;
+//         const windowHeight = container.offsetHeight;
+
+//         camera.aspect = windowWidth / windowHeight;
+//         camera.updateProjectionMatrix();
+//     }
+
+//     addEventListeners() {
+//         window.addEventListener('resize', this.onResize);
+		
+//     }
+// }
+
+// // Inicijalizacija
+// const smoke = new Smoke();
+// smoke.update();
+
+
+
+
+
+
 
 
 let lenis;
@@ -40,197 +198,22 @@ const initSmoothScrolling = () => {
 MenuAnimations()
 initSmoothScrolling()
 // setupAllHoverAnimations()
-
-const animateWords = el => {
-    
-  // from: https://www.npmjs.com/package/split-type#splitting-text 
-  // Important: The following style should be applied to all target elements. This prevents the characters from shifting slightly when text is split/reverted.
-  gsap.set(el, {'font-kerning': 'none'});
-
-  // Apply SplitType
-  const st = new SplitType(el, { types: 'lines, words' });
-  const lines = st.lines;
-
-  const tl = gsap.timeline({
-      scrollTrigger: {
-          trigger: el,
-          start: 'center center',
-          end: '+=300%',
-          scrub: true,
-          pin: el
-      }
-  })
-  .set(el, {perspective: 1000});
-
-  for (const [linepos,line] of lines.entries()) {
-      
-      gsap.set(line, {transformStyle: 'preserve-3d'});
-
-      const words = line.querySelectorAll('.word');
-      
-      tl
-      .to(words, {
-          ease: 'back.inOut',
-          opacity: 0,
-          rotationY: (pos,_,arr) => pos > arr.length/2 ? Math.abs(pos-arr.length/2)*-15 : Math.abs(pos-arr.length/2)*15,
-          z: () => gsap.utils.random(-1000,-500),
-          stagger: {
-              each: 0.02,
-              from: 'center'
-          }
-          
-      }, linepos*.05);
-
-  }
+document.addEventListener('DOMContentLoaded', function() {
+	// 1. Skrivaće ceo sadržaj stranice dok se sve ne učita
+	
+	
+	// 2. Dodajemo čekanje da se CSS učita (tako što čekamo da se svi resursi učitaju)
+	window.onload = function() {
+	  
+	  initBarba(); // Ovde ide tvoj Barba kod, sada možeš da ga pozoveš
+	};
+  });
   
-};
-
-// GSAP Scroll Triggers
-const scroll = () => {
-  [...document.querySelectorAll('[data-split]')].forEach(el => {
-      animateWords(el)
-  });
-};
-
-scroll()
-
-document.addEventListener('DOMContentLoaded', function () {
-  const budgetButtons = document.querySelectorAll('.footer__price-button');
-  let selectedBudget = ''; // Ovdje ćemo sačuvati izabrani budžet
-
-  // Dodavanje event listenera za dugmadi
-  budgetButtons.forEach(button => {
-      button.addEventListener('click', function () {
-          // Uklanjanje aktivnog stila sa svih dugmadi
-          budgetButtons.forEach(btn => btn.classList.remove('selected'));
-
-          // Dodavanje aktivnog stila na kliknutu dugme
-          button.classList.add('selected');
-          selectedBudget = button.getAttribute('data-price'); // Preuzimamo podatke o budžetu
-         
-          
-      });
-  });
-
-// Funkcija za zatvaranje poruke
-function closeSuccessMessage() {
-  document.getElementById('successMessage').style.display = 'none';
-}
-
-  // Kada se submituje forma
-  document.querySelector('#footerForm').addEventListener('submit', function (event) {
-      event.preventDefault();  // Sprečavamo da stranica bude osvežena
-
-      const form = this; // 'this' predstavlja formu
-
-      // Dodajemo odabrani budžet u formu pre slanja
-      const budgetInput = document.createElement('input');
-      budgetInput.type = 'hidden';
-      budgetInput.name = 'budget';
-      budgetInput.value = selectedBudget;
-      form.appendChild(budgetInput);
-
-      // Slanje podataka putem EmailJS
-      emailjs.sendForm('service_t9nfmkq', 'template_j21502l', form, 'hhCGMxWdpzOwXjwEv')
-          .then(function (response) {
-              console.log('Success:', response);
-             
-
-              document.getElementById('successMessage').style.display = 'block';
-            form.reset();
-
-            // Poništavamo selektovani budžet
-            selectedBudget = '';
-          }, function (error) {
-              console.log('Error:', error);
-             
-          });
-  });
-//   // Dodavanje event listenera za dugme "Zatvori"
-document.getElementById('closeButton').addEventListener('click', closeSuccessMessage);
-});
-
-
-
-const buttonss = document.querySelector('.footer__submit-button');
-
-
-  const filler = document.querySelector('.footer__button-filler');
-  const textInner = document.querySelector('.footer__button-text-inner');
-
-  buttonss.addEventListener('mouseenter', () => {
-    // Filler animation
-    
-    buttonss.classList.add('button--hover');
-    // Dodavanje klase active na body
-    document.body.classList.add('active');
-    
-
-
-   const tl = gsap.timeline()
-    tl.to(filler, {
-      duration: 0.5,
-      startAt: { y: '75%' }, // Početna pozicija na ulazu
-      y: '0%',
-      ease: 'Power3.easeOut'
-    });
-
-    // Text animation
-    tl.to(textInner, {
-      duration: 0.1,
-      opacity: 0,
-      startAt: { y: '30%', opacity: 1 },
-      y: '-10%',
-      ease: 'Power3.easeOut'
-    }, 0);
-
-    tl.to(textInner, {
-      duration: 0.25,
-      opacity: 1,
-      y: '0%',
-      ease: 'Power3.easeOut',
-      delay: 0.1
-    }, 0,1);
-  });
-
-  buttonss.addEventListener('mouseleave', () => {
-
-    buttonss.classList.remove('button--hover');
-    // Uklanjanje klase active sa body
-    document.body.classList.remove('active');
-    const tl = gsap.timeline()
-    // Filler animation reverse
-    tl.to(filler, {
-      duration: 0.4,
-      y: '-75%',
-      ease: 'Power3.easeOut'
-    });
-
-    // Text animation reverse
-    tl.to(textInner, {
-      duration: 0.1,
-      opacity: 0,
-      y: '10%',
-      ease: 'Power3.easeOut'
-    }, 0);
-
-    tl.to(textInner, {
-      duration: 0.25,
-      opacity: 1,
-      startAt: { y: '-30%', opacity: 1 }, 
-      y: '0%',
-      ease: 'Power3.easeOut',
-      delay: 0.1
-    }, 0.1);
-  });
-
-
-
-
-
-document.addEventListener('DOMContentLoaded', () => { 
  
-  initBarba() 
-  animationScrool()
-} )
+  
+  
+
+
+
+
 

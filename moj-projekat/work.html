@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preload" href="/src/style.css" as="style">
+    <title>Document</title>
+  </head>
+  <body data-barba="wrapper">
+
+    <svg id="curve-svg" class="curve-svg" xmlns="http://www.w3.org/2000/svg">
+        <path id="curve-path" d="M0 300 Q50 0 100 300 L100 600 Q50 900 0 600 Z" />
+        
+      </svg>
+      
+    
+  
+    <div class="titlesForPages">
+      <div class="titlesForPages__home ap" >Home</div>
+      <div class="titlesForPages__work ap" >My Protfolio</div>
+      <div class="titlesForPages__pro ap" >Lemonaide</div>
+    </div>
+    <button class="button" aria-label="Toggle menu" aria-expanded="false" onclick="toggleMenu()">
+        <div class="slider" id="slider">
+          <div class="el" id="menuLabel">
+            <span>Menu</span>
+          </div>
+          <div class="el" id="closeLabel">
+            <span>Close</span>
+          </div>
+        </div>
+      </button>
+      <nav id="menu" class="menu" aria-hidden="true">
+        <div class="menu-links">
+          <ul>
+            <li class="linkContainer"><a href="/" class="link">Home</a></li>
+            <li class="linkContainer"><a href="/about" class="link">About</a></li>
+            <li class="linkContainer"><a href="/my-work/my-protfolio.html" class="link">Services</a></li>
+            <li class="linkContainer"><a href="/contact" class="link">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    <main data-barba="container" data-barba-namespace="work">
+      <div class="page-wrapper">
+        <header class="work__page__header">
+           <h1 class="work__page__title">
+            <div>Creating next level </div>
+            <div>digital products</div>
+           </h1> 
+        </header>
+        <section class="work__fillter">
+            <div class="work__fillter__buttons">
+                <div class="work__fillter__row">
+                    <div class="fillter__row">
+                        <button class="button__fillter active-button">All</button>
+                        <button class="button__fillter">Front-end</button>
+                        <button class="button__fillter">Desing</button>
+                    </div>
+                    <div class="toggle__row">
+                        <button id="layout-toggle" class="toggle__button">
+                          <div class="toggle-lines">
+                            <span class="toggle-line"></span>
+                            <span class="toggle-line"></span>
+                            <span class="toggle-line"></span>
+                            <span class="toggle-line"></span>
+                          </div>
+                        </button>
+                        <button id="card-layout-toggle" class="toggle__button cube" >
+                            <div class="toggle-cubes">
+                              <span class="toggle-cube"></span>
+                              <span class="toggle-cube"></span>
+                              <span class="toggle-cube"></span>
+                              <span class="toggle-cube"></span>
+                            </div>
+                          </button>
+                      </div>
+                      
+                </div>
+            </div>
+        </section>
+
+        <section class="work__grid">
+            <div class="work__grid__con">
+               <div class="table-layout">
+                <div class="work__grid__subtitle">
+                    <div class="work__grid__flex-item"> Client</div>
+                    <div class="work__grid__flex-item"> Locatio </div>
+                    <div class="work__grid__flex-item"> Service </div>
+                    <div class="work__grid__flex-item"> Year</div>
+                </div>
+            
+
+            <ul class="work__grid__list small">
+                <li class="vissible" data-category="front-end">
+                    <div class="stripe-animete"></div>
+                    <a href="" class="work__grid__list__row"> 
+                        <div class="work__grid__flex-item__row"> Client</div>
+                        <div class="work__grid__flex-item__row"> Client</div>
+                        <div class="work__grid__flex-item__row"> Client</div>
+                        <div class="work__grid__flex-item__row"> Client</div>
+                    </a>
+                </li>
+                <li class="vissible"  data-category="desing"> 
+                    <div class="stripe-animete"></div>
+                    <a href="" class="work__grid__list__row"> 
+                    
+                    <div class="work__grid__flex-item__row"> Client</div>
+                    <div class="work__grid__flex-item__row"> Client</div>
+                    <div class="work__grid__flex-item__row"> Client</div>
+                    <div class="work__grid__flex-item__row"> Client</div>
+                </a>
+            </li>
+                <li class="vissible" data-category="front-end"> 
+                    <div class="stripe-animete"></div>
+                    <a href="" class="work__grid__list__row">
+                   
+                    <div class="work__grid__flex-item__row"> Client</div>
+                    <div class="work__grid__flex-item__row"> Client</div>
+                    <div class="work__grid__flex-item__row"> Client</div>
+                    <div class="work__grid__flex-item__row"> Client</div>
+                </a></li>
+                <li class="vissible"  data-category="desing"> 
+                    <div class="stripe-animete"></div>
+                    <a href="" class="work__grid__list__row">
+                   
+                    <div class="work__grid__flex-item__row"> Client</div>
+                    <div class="work__grid__flex-item__row"> Client</div>
+                    <div class="work__grid__flex-item__row"> Client</div>
+                    <div class="work__grid__flex-item__row"> Client</div>
+                </a></li>
+            </ul>
+        </div>
+            <div class="card-layout">
+            <ul class="work__grid__cards small" >
+                
+                <li class="work__grid__card" data-category="front-end">
+                    <div class="card">
+                        <img src="images/Intro2.jpg" alt="Client Image" class="card-image">
+                        <div class="card-title">Card Title</div>
+                        <hr class="card-divider">
+                        <div class="card-content">
+                            <div class="card-text-left">Left side text content.</div>
+                            <div class="card-text-right">Right side text content.</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="images/Intro2.jpg" alt="Client Image" class="card-image">
+                        <div class="card-title">Card Title</div>
+                        <hr class="card-divider">
+                        <div class="card-content">
+                            <div class="card-text-left">Left side text content.</div>
+                            <div class="card-text-right">Right side text content.</div>
+                        </div>
+                    </div>
+                </li>
+                <li class="work__grid__card" >
+                    <div class="card" data-category="design">
+                        <img src="images/Intro2.jpg" alt="Client Image" class="card-image">
+                        <div class="card-title">Card Title</div>
+                        <hr class="card-divider">
+                        <div class="card-content">
+                            <div class="card-text-left">Left side text content.</div>
+                            <div class="card-text-right">Right side text content.</div>
+                        </div>
+                    </div>
+                    <div class="card" data-category="design">
+                        <img src="images/Intro2.jpg" alt="Client Image" class="card-image">
+                        <div class="card-title">Card Title</div>
+                        <hr class="card-divider">
+                        <div class="card-content">
+                            <div class="card-text-left">Left side text content.</div>
+                            <div class="card-text-right">Right side text content.</div>
+                        </div>
+                    </div>
+                </li>
+                <!-- Drugi item-i kartica sa istim formatom -->
+            </ul>
+        </div>
+        </section>
+    </main>
+    <script type="module" src="/src/main.js" defer></script>
+  </body>
+</html>

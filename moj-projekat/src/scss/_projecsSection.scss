@@ -1,173 +1,92 @@
-.projects-grid {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  height: 100%; /* Sekcija je 100vh */
-  margin: 0; /* Uklanjamo sve default margine */
-  padding: 2rem; /* Uklanjamo sve default paddinge */
-  background-color: #000000;
-  position: relative;
-  z-index: 999;
+.projects {
+  max-width: 1750px;
+  margin: 0 auto;
 
-  &__container {
-    display: flex;
+  &__wrapper {
+    padding-inline: 1.5rem;
     width: 100%;
-    height: 100%; /* Osiguravamo da se kontejner proširi do 100% visine */
-    gap: 2rem;
-    background-color: #000000;
-    padding: 0.5rem;
-    border: 1px solid #2c2c2c;
-    border-radius: 8px;
-    color: white;
+    height: 100%;
+    color: black;
   }
 
-  &__left-container {
-    width: 20%;
-    padding: 2rem; /* Uklanjamo padding sa leve strane */
-    background-color: #0e0e0e;
-    height: 100vh;
-    border-radius: 8px;
-  }
-
-  &__right-container {
-    width: 80%;
-    padding: 0; /* Uklanjamo padding sa desne strane */
-
+  &__item {
+    // height: 100%;
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    position: relative;
-    height: 100%; /* Osiguravamo da desni kontener zauzima celu visinu */
+
+    margin-top: 10rem;
   }
 
-  &__grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 4.5rem; /* Manji razmak između kartica */
-    flex-grow: 1; /* Omogućava gridu da zauzme preostali prostor */
+  &__text {
     position: relative;
+    padding-inline: 1rem;
+    align-self: flex-end;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
   }
-  // .projects-grid__bg {
-  //   position: absolute;
-  // }
-  &__grid-item {
-    background-color: #0e0e0e;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    position: relative;
-    transition: transform 0.3s ease;
-    border: 1px solid #2c2c2c;
-    border-radius: 8px;
-    padding: 0.5rem;
 
-    .projects-grid__link {
-      text-decoration: none;
-      display: block;
-      width: 100%;
-    }
+  .projects__item:hover .projects__text {
+    opacity: 1; /* Povecavamo opacity na 1 kada se hoveruje */
   }
-  &__grid-item::after {
-    content: "";
-    height: 150px;
-    width: 2px;
+
+  &__title {
+    font-size: clamp(5rem, 5vw, 10rem);
+    flex: 0 0 auto;
+  }
+
+  &__number {
     position: absolute;
-    left: -1px;
-    top: 65%;
-    transition: top, opacity;
-    transition-duration: 600ms;
-    transition-timing-function: ease;
-    background: linear-gradient(transparent, mediumslateblue, transparent);
-    opacity: 0;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  }
-
-  &__grid-item:hover:after {
-    top: 5%;
-    opacity: 1;
-  }
-
-  &__case {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    gap: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    top: 0;
+    right: 0;
   }
 
   &__img {
+    width: 25%;
+    flex: 0 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .spacer {
+    // flex: 1 0 0%;
+    height: 1px;
     width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover; /* Osigurava da slika popuni prostor kartice */
-    border-radius: 8px;
-    aspect-ratio: 1.5 / 1;
-  }
-
-  &__info {
-    padding: 1.5rem;
-    background-color: #fff;
-    display: flex;
-    flex-direction: column; /* Postavljamo tekst ispod slike */
-    justify-content: flex-start;
-    align-items: flex-start;
-    height: auto;
-    margin-top: 0; /* Uklanjamo marginu sa vrha */
-  }
-
-  &__infoo {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: auto;
-    margin-top: 1.5rem; /* Uklanjamo marginu sa vrha */
-    margin-bottom: 1rem;
-    padding-inline: 1rem;
-  }
-
-  &__name {
-    font-size: 1.5rem;
-  }
-  &__date {
-  }
-
-  &__text-left {
-    margin: 0; /* Uklanjamo sve default margine */
-    padding: 0; /* Uklanjamo padding */
-    font-size: 1.25rem;
-    font-weight: 500;
-    color: #333;
-  }
-
-  &__text-right {
-    margin: 0; /* Uklanjamo sve default margine */
-    padding: 0; /* Uklanjamo padding */
-    font-size: 1rem;
-    color: #666;
+    background-color: black;
+    margin-inline: 1rem;
     align-self: flex-end;
+    margin-bottom: 25px;
+    opacity: 0.4;
+  }
+  .sm {
+    width: 8%;
+  }
+}
+
+/* Media query za manje ekrane (npr. do 768px) */
+@media (max-width: 768px) {
+  .projects__item {
+    flex-direction: column; /* Stavlja sve elemente jedan ispod drugog */
+    margin-top: 2rem; /* Manji razmak između elemenata */
   }
 
-  &__button-more {
-    display: flex;
-    justify-content: center;
-    margin-top: 2rem;
+  .r {
+    flex-direction: column; /* Stavlja sve elemente jedan ispod drugog */
+    flex-direction: column-reverse;
+    margin-top: 2rem; /* Manji razmak između elemenata */
   }
 
-  &__more-button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 1rem 2rem;
-    font-size: 1rem;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  .projects__img {
+    width: 100%; /* Slika će zauzeti 100% širine */
+    margin-bottom: 1rem; /* Manji razmak ispod slike */
+  }
 
-    &:hover {
-      background-color: #0056b3;
-    }
+  .projects__title {
+    font-size: clamp(2rem, 3vw, 2rem);
+    margin-bottom: 2rem;
+  }
+
+  .projects__text {
+    opacity: 1; /* Vratimo opacitet na 1 na manjim ekranima */
+    align-self: flex-start;
   }
 }

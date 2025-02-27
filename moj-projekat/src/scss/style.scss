@@ -2,11 +2,17 @@
 @import "menu";
 @import "homeSlider";
 @import "aboute";
-@import "mouse.scss";
-@import "buttons.scss";
+@import "mouse";
+@import "buttons";
 @import "projecsSection";
 @import "gridGal";
 @import "footer";
+@import "de";
+@import "detailpage";
+@import "pageTransition";
+@import "smoke";
+@import "workPage";
+@import "WorkPage/workGrid";
 /* Resetovanje svih default margina, paddinga i drugih vrednosti za semantičke HTML5 elemente */
 article,
 aside,
@@ -54,7 +60,16 @@ svg {
   max-width: 100%;
   height: auto;
 }
-
+.curve-svg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  width: 100vw;
+  height: calc(100vh + 600px);
+  transform: translateY(45%);
+  z-index: 99999;
+}
 a {
   text-decoration: none; /* Uklanja underline sa linkova */
   color: inherit; /* Ponaša se kao tekst */
@@ -66,7 +81,16 @@ ol {
   margin: 0;
   padding: 0;
 }
-
+/* Canvas za maglu */
+#fogCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Omogućava da canvas ne blokira interakciju sa drugim elementima */
+  z-index: 1;
+}
 button,
 input,
 select,
@@ -112,8 +136,7 @@ input[type="submit"] {
 }
 body {
   /* Sakrij sadržaj dok se stranica učitava */
-  background-color: #1c1d20;
-  height: 100%;
+  // background-color: #1c1d20;
 
   margin: 0;
   padding: 0;
@@ -126,7 +149,16 @@ body {
 p {
   margin: 0; /* Uklanja sve margine sa svih strana */
 }
-
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  /* Opciono: dodajte tranziciju za glatko pojavljivanje */
+}
+.visible {
+  visibility: visible;
+  opacity: 1;
+  /* Opciono: dodajte tranziciju za glatko pojavljivanje */
+}
 h1,
 h2,
 h3,
@@ -155,11 +187,12 @@ h6 {
 #overlay.show {
   opacity: 1; /* kada je aktiviran, overlay postaje vidljiv */
 }
-.dd {
+.ddd {
   position: fixed;
   top: 0;
   left: 0;
   z-index: 20;
+  color: black;
 }
 img {
   width: 100%;
@@ -195,15 +228,14 @@ img {
   top: 20%;
 }
 
-.grid {
-  position: absolute;
-  left: -10%;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 2rem;
-  width: 120%;
-  transition: all 3s cubic-bezier(0.47, 0, 0.745, 0.715);
-}
+// .grid {
+//   position: absolute;
+//   left: -10%;
+//   display: grid;
+//   grid-template-columns: repeat(5, 1fr);
+//   gap: 2rem;
+//   width: 120%;
+// }
 
 /* CSS za sliku unutar .img-container.ss */
 .img-container.ss img {
@@ -226,70 +258,4 @@ img {
 .ss {
   position: relative;
   z-index: 99999999999;
-}
-
-.img-container {
-  height: 100px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-
-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Generalni stilovi za projekte */
-.projects__con {
-  margin: 0 auto;
-}
-
-.project-item {
-  list-style: none;
-  padding: 20px;
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.line-animation {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background-color: #000;
-  transition: transform 0.3s ease-in-out;
-
-  transform-origin: right;
-}
-
-/* Pomeranje tekstova na hover */
-.link-row h4 {
-  font-size: 24px;
-  font-weight: 400;
-  transition: all 0.4s ease;
-}
-
-/* Animacija kada je projekat hoverovan */
-.project-item:hover .link-row-1 h4 {
-  transform: translateX(-10px);
-}
-
-.project-item:hover .link-row-2 h4 {
-  transform: translateX(10px);
-}
-
-/* Dodavanje efekta smanjenja opaciteta */
-.project-item:hover {
-  opacity: 0.7;
-}
-
-/* Dodavanje tranzicije za sve */
-.project-item,
-.link-row h4 {
-  transition: all 0.4s ease;
 }

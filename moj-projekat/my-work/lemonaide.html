@@ -6,6 +6,12 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite App - Page 2</title>
+
+    <style>
+      .m {
+        height: 200vh;
+      }
+    </style>
   </head>
   <body data-barba="wrapper">
     <!-- Ovo je sadržaj koji se neće menjati između stranica (npr. header, footer) -->
@@ -40,20 +46,20 @@
         </ul>
       </div>
     </nav>
-    <div id="overlay"></div>
+
     <svg id="curve-svg" class="curve-svg" xmlns="http://www.w3.org/2000/svg">
       <path id="curve-path" d="M0 300 Q50 0 100 300 L100 600 Q50 900 0 600 Z" />
     </svg>
-    <header>
-      <nav>
-        <a href="/page1.html">Stranica 1</a>
-        <a href="/page2.html">Stranica 2</a>
-      </nav>
-    </header>
+    <div class="ddd">
+      <a href="/index.html">Home</a>
+      <a href="/my-work/my-protfolio.html">Work</a>
+      <a href="/page2.html">Page 2</a>
+    </div>
 
     <!-- Ovo je sadržaj koji se menja između stranica (barba-container) -->
-    <main data-barba="container" data-barba-namespace="page2">
+    <main data-barba="container" data-barba-namespace="lemonaide">
       <h1>Stranica 2</h1>
+      <div class="m"></div>
       <footer></footer>
     </main>
 

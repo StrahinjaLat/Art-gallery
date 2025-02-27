@@ -1,0 +1,25 @@
+.titlesForPages {
+  position: fixed; /* Fiksiramo roditeljsku div na ekran */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh; /* Uzimamo celu visinu ekrana */
+  pointer-events: none;
+  z-index: 999999;
+}
+
+.titlesForPages__home,
+.titlesForPages__work,
+.titlesForPages__pro {
+  opacity: 0;
+  will-change: transform opacity;
+}
+
+.ap {
+  position: absolute; /* Apsolutno pozicioniranje */
+  top: 50%; /* Prvo pozicioniramo prvi naslov na vrh */
+  left: 50%; /* Centriramo svaki naslov horizontalno */
+  transform: translate(-50%, -50%); /* Savršeno centriranje horizontalno */
+  font-size: 24px; /* Velicina fonta */
+  color: white; /* Boja teksta */
+}

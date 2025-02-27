@@ -5,3 +5,40 @@
   justify-content: center;
   margin-top: 5rem;
 }
+
+// .footer__submit-button {
+//   cursor: pointer;
+//   -moz-appearance: none;
+//   -webkit-appearance: none;
+//   border-width: 1px;
+//   border-color: #000;
+//   border-style: solid;
+//   color: #000;
+//   background: transparent;
+//   border-radius: 40px;
+
+//   height: 15px;
+//   padding: 0;
+//   margin: 1rem;
+//   font-family: inherit;
+//   font-size: 1.5rem;
+//   overflow: hidden;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   position: relative;
+//   color: red;
+//   width: 50px;
+// }
+.button--hover {
+  // outline: none;
+  // border-width: var(--button-stroke-width-hover);
+  // border-color: var(--button-stroke-hover);
+  color: white;
+}
+.footer__submit-button:focus,
+.footer__submit-button--hover {
+  outline: none;
+  border-width: 1px;
+  border-color: #000;
+}

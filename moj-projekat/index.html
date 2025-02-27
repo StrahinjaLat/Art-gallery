@@ -1,116 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <link rel="preload" href="/src/style.css" as="style" />
-    
+    <!-- Encoding -->
+    <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Portfolio of a front-end developer and designer. Explore my work in web design, UX/UI design, and front-end development. I create modern, responsive, and user-centered web applications.">
+    <meta name="keywords" content="front-end development, UX design, UI design, web design, responsive design, modern websites, web developer portfolio, user experience, HTML, CSS, JavaScript">
+    <meta name="author" content="Strahinja Latinovic">
+
+    <!-- Open Graph (for social media sharing) -->
+    <meta property="og:title" content="Front-End Developer & Designer Portfolio - Strahinja Latinovic">
+    <meta property="og:description" content="Explore my portfolio showcasing my front-end development and UX/UI design work. See my projects and learn about my approach to creating modern, user-friendly websites.">
+    <meta property="og:image" content="https://your-site.com/path-to-image.jpg"> <!-- Image that represents your site -->
+    <meta property="og:url" content="https://your-site.com/">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card (for Twitter sharing) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Front-End Developer & Designer Portfolio - Your Name">
+    <meta name="twitter:description" content="Explore my portfolio showcasing my front-end development and UX/UI design work. See my projects and learn about my approach to creating modern, user-friendly websites.">
+    <meta name="twitter:image" content="https://your-site.com/path-to-image.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/vite.svg">
+
+    <!-- Preload CSS (Performance optimization) -->
+    <link rel="preload" href="/src/style.css" as="style">
+
+    <!-- Google Fonts Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+
+    <!-- Viewport for responsiveness -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title for SEO -->
+    <title>Front-End Developer & Designer Portfolio - Strahinja Latinovic</title>
+</head>
   <body class="mf-container" data-barba="wrapper" >
-    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="svg-filters">
-      <defs>
-        <filter id="goo-2">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="0" result="blur"></feGaussianBlur>
-          <feColorMatrix
-            in="blur"
-            mode="matrix"
-            values="	1 0 0 0 0
-                  0 1 0 0 0
-                  1 0 1 0 0
-                  0 0 0 15 -8"
-            result="goo"
-          ></feColorMatrix>
-          <feTurbulence
-            type="fractalNoise"
-            baseFrequency="0.1 0.5"
-            numOctaves="5"
-            seed="2"
-            result="noise"
-          ></feTurbulence>
-          <feDisplacementMap in="goo" in2="noise" scale="0" result="displacement"></feDisplacementMap>
-          <feComposite in="SourceGraphic" in2="displacement" operator="atop"></feComposite>
-        </filter>
-        <filter id="goo-3">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="0" result="blur"></feGaussianBlur>
-          <feColorMatrix
-            in="blur"
-            mode="matrix"
-            values="	1 0 0 0 0
-                  0 1 0 0 0
-                  1 0 1 0 0
-                  0 0 0 15 -8"
-            result="goo"
-          ></feColorMatrix>
-          <feTurbulence
-            type="fractalNoise"
-            baseFrequency="0.1 0.5"
-            numOctaves="5"
-            seed="2"
-            result="noise"
-          ></feTurbulence>
-          <feDisplacementMap in="goo" in2="noise" scale="0" result="displacement"></feDisplacementMap>
-          <feComposite in="SourceGraphic" in2="displacement" operator="atop"></feComposite>
-        </filter>
-        <filter id="goo-4">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="0" result="blur"></feGaussianBlur>
-          <feColorMatrix
-            in="blur"
-            mode="matrix"
-            values="	1 0 0 0 0
-                  0 1 0 0 0
-                  0 0 1 0 0
-                  0 0 0 18 -8"
-            result="goo"
-          ></feColorMatrix>
-          <feTurbulence
-            type="fractalNoise"
-            baseFrequency="1 0.01"
-            numOctaves="1"
-            seed="1"
-            result="noise"
-          ></feTurbulence>
-          <feDisplacementMap in="goo" in2="noise" scale="0" result="displacement"></feDisplacementMap>
-          <feComposite in="SourceGraphic" in2="displacement" operator="atop"></feComposite>
-        </filter>
-        <filter id="goo-5">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="0" result="blur"></feGaussianBlur>
-          <feColorMatrix
-            in="blur"
-            mode="matrix"
-            values="	1 0 0 0 0
-                  0 1 0 0 0
-                  0 0 1 0 0
-                  0 0 0 14 -1"
-            result="goo"
-          ></feColorMatrix>
-          <feTurbulence
-            type="fractalNoise"
-            baseFrequency="0.009 1"
-            numOctaves="1"
-            seed="1"
-            result="noise"
-          ></feTurbulence>
-          <feDisplacementMap in="goo" in2="noise" scale="0" result="displacement"></feDisplacementMap>
-          <feComposite in="SourceGraphic" in2="displacement" operator="atop"></feComposite>
-        </filter>
-      </defs>
+    <svg id="curve-svg" class="curve-svg" xmlns="http://www.w3.org/2000/svg">
+      <path id="curve-path" d="M0 300 Q50 0 100 300 L100 600 Q50 900 0 600 Z" />
+      
     </svg>
-    <div id="overlay"></div>
-    <div class="dd">
-    <a href="/page1.html">Stranica 1</a>
-    <a href="/page2.html">Stranica 2</a> 
-    <a href="/page2.html">Stranica 2</a> 
+    
+  
+
+  <div class="titlesForPages">
+    <div class="titlesForPages__home ap" >Home</div>
+    <div class="titlesForPages__work ap" >My Protfolio</div>
+    <div class="titlesForPages__pro ap" >Lemonaide</div>
+  </div>
+  
+  
+    
+   
+    <div class="ddd">
+    <a href="/index.html">Home</a>
+    <a href="/my-work/my-protfolio.html">Work</a> 
+    <a href="/my-work/lemonaide.html">Lamonaide</a> 
+    <a href="/work.html">See more</a> 
   </div>
    
    
     <!-- <div class="loading-screen" id="loading-screen">
       <div class="loading-counter" id="loading-counter">
         <span id="counter">0</span>%
-      </div> -->
-      <!-- <div class="grid">
+      </div> 
+      <div class="grid">
         <div class="n prvi">
           <div class="img-container one">
             <img src="images/Intro1.jpg" alt="Image 1" class="image" />
@@ -206,7 +164,7 @@
       <ul>
         <li class="linkContainer"><a href="/" class="link">Home</a></li>
         <li class="linkContainer"><a href="/about" class="link">About</a></li>
-        <li class="linkContainer"><a href="/services" class="link">Services</a></li>
+        <li class="linkContainer"><a href="/my-work/my-protfolio.html" class="link">Services</a></li>
         <li class="linkContainer"><a href="/contact" class="link">Contact</a></li>
       </ul>
     </div>
@@ -226,7 +184,7 @@
     <div class="slides">
       <div class="slide">
         <div class="slide__img beckGroundImage" >
-          <img src="images/Intro1.jpg" alt="">
+          <img src="images/Intro2.jpg" alt="">
         </div>
       </div>
       <div class="slide">
@@ -241,68 +199,304 @@
       </div>
       
     </div>
+     <div class="upper-l">
+      <!-- <div id="smoke-container"> -->
+    <div class="content">
+			<h2 class="content__title text-centered centered  narrow" data-split >
+        Whether you need a captivating website or a high-performance web application, I specialize in creating dynamic digital experiences. From stunning visuals to seamless functionality, I deliver custom solutions tailored to your business needs. I ensure your digital product is fast, engaging, and scalable, helping you achieve long-term success.
+			</h2>
+		</div>
+		<div class="content mr-b">
+			<h2 class="content__title text-centered centered content__title--smaller narrow " data-split >  I design visually striking websites that engage visitors and encourage interaction. Speed is key, so I optimize every project for maximum performance. Whether it's a personal blog or a business site, I focus on delivering high-quality, bespoke web solutions that leave a lasting impression.</h2>
+		</div>
 
-    <section class="aboute">
-      <section class="projects-grid">
-        <div class="padding-con">
-          <div class="container">
-            <h2 class="section-title">Projects</h2>
-            <div class="grid-p">
-              <div class="grid-item" id="gridItem1">
-                <a class="change-color-1" href="/project">
-                  <div class="case" id="case1">
-                    <img data-filter="goo-1" data-script="filter1" src="images/Intro1.jpg" alt="Project 1" class="img-one" />
-                    <div class="bg-color"></div>
-                  </div>
-                  <div class="text-wrapper">
-                    <h3>01.project</h3>
-                  </div>
-                </a>
+   <section class="projects">
+    <!-- <div id="smoke-container"> -->
+    <div class="projects__wrapper">
+      <div class="projects__item">
+        <div class="projects__text">
+        <div class="projects__title">Protfolio</div> 
+        <div class="projects__number">01</div>
+      </div>
+        <div class="spacer"></div>
+          <div class="projects__img">
+            <img src="images/Intro1.jpg" alt="">
+          </div>
+        </div>
+        <div class="projects__item r">
+          
+          <div class="projects__img">
+            <img src="images/Intro1.jpg" alt="">
+
+          </div>
+          <div class="spacer"></div>
+          <div class="projects__text">
+          <div class="projects__title">Lemonaide</div> 
+          <div class="projects__number">02</div>
+        </div>
+        
+  
+       
+      </div>
+      <div class="projects__item">
+        <div class="projects__text">
+        <div class="projects__title">Jennette</div> 
+        <div class="projects__number">03</div>
+      </div>
+        <div class="spacer"></div>
+          <div class="projects__img">
+            <img src="images/Intro1.jpg" alt="">
+          </div>
+
+     
+    </div>
+    <div class="projects__item r">
+      
+      <div class="projects__img">
+        <img src="images/Intro1.jpg" alt="">
+      </div>
+      <div class="spacer"></div>
+      <div class="projects__text">
+      <div class="projects__title">Protfolio</div> 
+      <div class="projects__number">01</div>
+    </div>
+     
+
+   
+  
+ 
+<!-- </div> -->
+</div>
+  </section>
+    <section class="gallery gallery--spacing">
+      <div class="gallery-container gallery--4">
+          <div class="gallery-wrap">
+              <!-- Gallery Item 1 -->
+              <div class="gallery__item">
+                  <div class="gallery__item-inner" style="background-image:url(img/1.jpg)"></div>
               </div>
-              <div class="grid-item" id="gridItem2">
-                <a class="change-color-2" href="/project">
-                  <div class="case" id="case2">
-                    <img  src="images/Intro1.jpg" alt="Project 2" class="img-one" />
-                    <div class="bg-color"></div>
-                  </div>
-                  <div class="text-wrapper">
-                    <p>Project description</p>
-                  </div>
-                </a>
+              <!-- Gallery Item 2 -->
+              <div class="gallery__item">
+                  <div class="gallery__item-inner" style="background-image:url(img/2.jpg)"></div>
               </div>
-              <div class="grid-item" id="gridItem3">
-                <a class="change-color-3" href="/project">
-                  <div class="case" id="case3">
-                    <img  src="images/Intro1.jpg" alt="Project 3" class="img-one" />
-                    <div class="bg-color"></div>
-                  </div>
-                  <div class="text-wrapper">
-                    <p>Project description</p>
-                  </div>
-                </a>
+              <!-- Gallery Item 3 -->
+              <div class="gallery__item">
+                  <div class="gallery__item-inner" style="background-image:url(img/3.jpg)"></div>
               </div>
-              <div class="grid-item" id="gridItem4">
-                <a class="change-color-4" href="/project">
-                  <div class="case" id="case4">
-                    <img src="images/Intro1.jpg" alt="Project 4" class="img-one" />
-                    <div class="bg-color"></div>
+              <!-- Gallery Item 4 -->
+              <div class="gallery__item">
+                  <div class="gallery__item-inner" style="background-image:url(img/4.jpg)"></div>
+              </div>
+              <!-- Gallery Item 5 -->
+              <div class="gallery__item">
+                  <div class="gallery__item-inner" style="background-image:url(img/5.jpg)"></div>
+              </div>
+              <!-- Gallery Item 6 -->
+              <div class="gallery__item">
+                  <div class="gallery__item-inner" style="background-image:url(img/6.jpg)"></div>
+              </div>
+              <!-- Gallery Item 7 -->
+              <div class="gallery__item">
+                  <div class="gallery__item-inner" style="background-image:url(img/7.jpg)"></div>
+              </div>
+              <!-- Gallery Item 8 -->
+              <div class="gallery__item">
+                  <div class="gallery__item-inner" style="background-image:url(img/8.jpg)"></div>
+              </div>
+                    <!-- Gallery Item 1 -->
+                    <div class="gallery__item">
+                      <div class="gallery__item-inner" style="background-image:url(img/1.jpg)"></div>
                   </div>
-                  <div class="text-wrapper">
-                    <h3>01.project</h3>
+                  <!-- Gallery Item 2 -->
+                  <div class="gallery__item">
+                      <div class="gallery__item-inner" style="background-image:url(img/2.jpg)"></div>
                   </div>
-                </a>
+                  <!-- Gallery Item 3 -->
+                  <div class="gallery__item">
+                      <div class="gallery__item-inner" style="background-image:url(img/3.jpg)"></div>
+                  </div>
+                  <!-- Gallery Item 4 -->
+                  <div class="gallery__item">
+                      <div class="gallery__item-inner" style="background-image:url(img/4.jpg)"></div>
+                  </div>
+                  <!-- Gallery Item 5 -->
+                  <div class="gallery__item">
+                      <div class="gallery__item-inner" style="background-image:url(img/5.jpg)"></div>
+                  </div>
+                  <!-- Gallery Item 6 -->
+                  <div class="gallery__item">
+                      <div class="gallery__item-inner" style="background-image:url(img/6.jpg)"></div>
+                  </div>
+                  <!-- Gallery Item 7 -->
+                  <div class="gallery__item">
+                      <div class="gallery__item-inner" style="background-image:url(img/7.jpg)"></div>
+                  </div>
+                  <!-- Gallery Item 8 -->
+                  <div class="gallery__item">
+                      <div class="gallery__item-inner" style="background-image:url(img/8.jpg)"></div>
+                  </div>
+                        <!-- Gallery Item 1 -->
+              <div class="gallery__item">
+                <div class="gallery__item-inner" style="background-image:url(img/1.jpg)"></div>
+            </div>
+            <!-- Gallery Item 2 -->
+            <div class="gallery__item">
+                <div class="gallery__item-inner" style="background-image:url(img/2.jpg)"></div>
+            </div>
+            <!-- Gallery Item 3 -->
+            <div class="gallery__item">
+                <div class="gallery__item-inner" style="background-image:url(img/3.jpg)"></div>
+            </div>
+            <!-- Gallery Item 4 -->
+            <div class="gallery__item">
+                <div class="gallery__item-inner" style="background-image:url(img/4.jpg)"></div>
+            </div>
+            <!-- Gallery Item 5 -->
+            <div class="gallery__item">
+                <div class="gallery__item-inner" style="background-image:url(img/5.jpg)"></div>
+            </div>
+            <!-- Gallery Item 6 -->
+            <div class="gallery__item">
+                <div class="gallery__item-inner" style="background-image:url(img/6.jpg)"></div>
+            </div>
+            <!-- Gallery Item 7 -->
+            <div class="gallery__item">
+                <div class="gallery__item-inner" style="background-image:url(img/7.jpg)"></div>
+            </div>
+            <!-- Gallery Item 8 -->
+            <div class="gallery__item">
+                <div class="gallery__item-inner" style="background-image:url(img/8.jpg)"></div>
+            </div>
+          </div>
+      </div>
+      <h3 class="gallery__title gallery__title--right">Now unfolds <br>eternity's grace</h3>
+  </section>
+  <footer class="footer">
+    <div class="footer__container">
+      <div class="footer__form-wrapper">
+        <form class="footer__form" id="footerForm">
+          <div class="footer__form-group">
+            <div class="footer__question">
+              <div class="footer__question-number">01</div>
+              <label for="question1" class="footer__label">
+                Pitanje 1
+              </label>
+            </div>
+            <input type="text" id="question1" name="question1" class="footer__input" placeholder="Unesite odgovor na pitanje 1">
+          </div>
+      
+          <div class="footer__form-group">
+            <div class="footer__question">
+              <div class="footer__question-number">02</div>
+              <label for="question2" class="footer__label">
+                Pitanje 2
+              </label>
+            </div>
+            <input type="text" id="question2" name="question2" class="footer__input" placeholder="Unesite odgovor na pitanje 2">
+          </div>
+      
+          <div class="footer__form-group">
+            <div class="footer__question">
+              <div class="footer__question-number">03</div>
+              <label for="question3" class="footer__label">
+                Pitanje 3
+              </label>
+            </div>
+            <input type="text" id="question3" name="question3" class="footer__input" placeholder="Unesite odgovor na pitanje 3">
+          </div>
+      
+          <div class="footer__form-group">
+            <div class="footer__question">
+              <div class="footer__question-number">04</div>
+              <label for="question4" class="footer__label">
+                Pitanje 4
+              </label>
+            </div>
+            <input type="text" id="question4" name="question4" class="footer__input" placeholder="Unesite odgovor na pitanje 4">
+          </div>
+          <!-- Novi kontener za dugmadi sa cenama -->
+          <div class="footer__form-group">
+            <label for="budget" class="footer__label">Izaberite Budžet:</label>
+            <div class="footer__price-options">
+              <div class="footer__price-option">
+                <button type="button" class="footer__price-button" data-price="1000">1000 USD</button>
+              </div>
+              <div class="footer__price-option">
+                <button type="button" class="footer__price-button" data-price="1000-1500">1000 - 1500 USD</button>
+              </div>
+              <div class="footer__price-option">
+                <button type="button" class="footer__price-button" data-price="1500-3000">1500 - 3000 USD</button>
+              </div>
+              <div class="footer__price-option">
+                <button type="button" class="footer__price-button" data-price="3000+">3000+ USD</button>
               </div>
             </div>
           </div>
+          
+          <div class="footer__form-group">
+            <div class="footer__question">
+              <div class="footer__question-number">05</div>
+              <label for="question5" class="footer__label">
+                Pitanje 5
+              </label>
+            </div>
+            <textarea id="question5" name="question5" class="footer__textarea" placeholder="Unesite odgovor na pitanje 5"></textarea>
+          </div>
+          <!-- <button type="submit" class="footer__submit-button">Pošaljite</button> -->
+          <button type="submit" class="footer__submit-button">
+            <div class="footer__button-filler"></div>
+            <span class="footer__button-text">
+              <span class="footer__button-text-inner">Pošaljite</span>
+            </span>
+          </button>
+          
+
+         <!-- Poruka koja se pojavljuje nakon što je e-mail poslat -->
+<div id="successMessage" class="success-message" style="display: none;">
+  <p>Email je uspešno poslat!</p>
+  <button id="closeButton">Zatvori</button>
+</div>
+
+        </form>
+      </div>
+      
+      <div class="footer__additional-info">
+        <div class="footer__details-container">
+          <h3 class="footer__details-title">Contact Details</h3>
+          <div class="footer__details-content">
+            <p>Email: example@example.com</p>
+            <p>Phone: +123 456 7890</p>
+          </div>
         </div>
-      </section>
-    
-    
-    </section>
-    <div id="textElement1" class="text">TEXT1</div>
+      
+        <!-- Kontjner za Business Details -->
+        <div class="footer__details-container">
+          <h3 class="footer__details-title">Business Details</h3>
+          <div class="footer__details-content">
+            <p>Name: John Doe</p>
+            <p>Location: City, Country</p>
+            <p>Company Name: Example Co.</p>
+          </div>
+        </div>
+      
+        <!-- Kontjner za Social -->
+        <div class="footer__details-container">
+          <h3 class="footer__details-title">Social</h3>
+          <div class="footer__details-content">
+            <a href="https://www.instagram.com" target="_blank">Instagram</a>
+            <a href="https://www.facebook.com" target="_blank">Facebook</a>
+            <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+<!-- </div> -->
+  </div>
+    <!-- <div id="textElement1" class="text">TEXT1</div>
     <div id="textElement2" class="text">TEXT1</div>
     <div id="textElement3" class="text">TEXT1</div>
-    <div id="textElement4" class="text">TEXT1</div>
+    <div id="textElement4" class="text">TEXT1</div> -->
        <!-- <div class="beckGroundImage">
         <img src="images/Intro2.jpg" alt="">
       </div> -->

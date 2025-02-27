@@ -1,39 +1,83 @@
 // animation.js
 import gsap from "gsap";  // Uveri se da imaš GSAP instaliran (npm install gsap)
+import imagesLoaded from 'imagesloaded';
 
-export const initializeAnimations = () => {
+import { letterAnimations } from '../JS/letterScrollAnimation'; 
+import { initSlideshow } from '../JS/slideShowInit';
+import { animationScrool } from '../JS/galleryScrool';
+import { CustomEase } from "gsap/CustomEase";
+
+gsap.registerPlugin(CustomEase);
+
+// Kreiraj CustomEase
+try {
+  // Umesto cubic-bezier() koristi jednostavniji format sa tačkama
+  CustomEase.create("customEase1", ".77, 0, .175, 1"); 
+  CustomEase.create("customEase1", ".39, .575, .565, 1"); 
+ 
+  
+
+
+
+
+
+
+  console.log("Custom easing kreiran!");
+} catch (error) {
+  console.error("Greška pri kreiranju CustomEase:", error);
+}
+
+
+export const introAnimatioScreen = () => {
   const counter = document.querySelector('.loading-counter');
   const loadingScreen = document.querySelector('.loading-screen')
   let loadedImages = 0;
-  const totalImages = 0;
+  let totalImages = 0;
   // Dodajemo slike iz različitih delova stranice
   const imagesToLoad = [
-    ...document.querySelectorAll('.grid img'),  // Slike unutar .grid
-    ...document.querySelectorAll('.slides img'),  // Slike unutar .slides
-    ...document.querySelectorAll('.img-container img')  // Slike unutar .img-container
+    ...document.querySelectorAll('.grid img'), 
+    // ...document.querySelectorAll('.slides img'),  
+    // ...document.querySelectorAll('.img-container img') 
   ];
 
-  totalImages = imagesToLoad.length;
-  // Funkcija koja se poziva kad se slika učita
-  const onImageLoad = () => {
-    loadedImages += 1;
-    const percentage = Math.floor((loadedImages / totalImages) * 100);
-    counter.innerText = `${percentage}%`; // Ažuriraj brojčanik
+  // totalImages = imagesToLoad.length;
+  
+  // const onImageLoad = () => {
+  //   loadedImages += 1;
+  //   const percentage = Math.floor((loadedImages / totalImages) * 100);
+  //   counter.innerText = `${percentage}%`; // Ažuriraj brojčanik
 
-    console.log(`Slika ${loadedImages} od ${totalImages} učitana.`);
+  //   console.log(`Slika ${loadedImages} od ${totalImages} učitana.`);
 
-    if (loadedImages === totalImages) {
-      // Animacija nestajanja brojača
-      gsap.to(counter, {
-        opacity: 0,
-        duration: 1,
-        onComplete: () => {
-          counter.style.display = 'none'; // Sakrij brojač
-          runAnimations(); // Pokreni glavnu animaciju
-        },
-      });
-    }
-  };
+  //   if (loadedImages === totalImages) {
+  //     // Animacija nestajanja brojača
+  //     gsap.to(counter, {
+  //       opacity: 0,
+  //       duration: 1,
+  //       onComplete: () => {
+  //         counter.style.display = 'none'; // Sakrij brojač
+  //         runAnimations(); // Pokreni glavnu animaciju
+  //       },
+  //     });
+  //   }
+  // };
+// Funkcija za učitavanje slika
+const preloadImages = (selector = 'img') => {
+  return new Promise((resolve) => {
+    // Koristimo imagesLoaded za specifične slike
+    imagesLoaded(document.querySelectorAll(selector), { background: true }, resolve);
+  });
+};
+
+// Preload images and initialize animations after the images have loaded
+preloadImages('.grid img').then(() => {
+   disableScroll()
+  runAnimations()
+   
+  scrollToTop()
+  window.scrollTo(0, 0); 
+});
+
 
   // Zatvori scroll dok traje animacija
   const disableScroll = () => {
@@ -52,19 +96,7 @@ export const initializeAnimations = () => {
     window.scrollTo(0, 0);
   };
 
-  // Resetuj animacije
-  const resetAnimations = () => {
-    gsap.killTweensOf('*');
-    const elementsToReset = document.querySelectorAll('.img-container, .grid, .n');
-    elementsToReset.forEach((el) => {
-      gsap.set(el, { clearProps: 'all' });
-    });
-    const two = document.querySelectorAll('.two');
-    const tElements = document.querySelectorAll('.t');
-
-    two.forEach((el, index) => el.style.order = 4 - index);
-    tElements.forEach((el, index) => el.style.order = 4 - index);
-  };
+ 
 
   // Postavi početne vrednosti za animacije
   
@@ -104,12 +136,12 @@ export const initializeAnimations = () => {
       y: '-57.7%',
       duration: 1,
       stagger: 0.3,
-      ease: 'power2.inOut',
+      ease: "customEase1"
     })
-      .to(firstCol, { y: '-58.5%', duration: 1, stagger: 0.3, ease: 'power2.inOut' }, '<')
-      .to(secondCol, { y: 0, duration: 1, stagger: 0.3 }, '<')
-      .to(thirdCol, { y: 0, duration: 1, stagger: 0.3 }, '<')
-      .to(fourCol, { y: '-58.5%', duration: 1, stagger: 0.3 }, '<');
+      .to(firstCol, { y: '-58.5%', duration: 1, stagger: 0.2, ease: "customEase1" }, '<')
+      .to(secondCol, { y: 0, duration: 1, stagger: 0.2, ease: "customEase1" }, '<')
+      .to(thirdCol, { y: 0, duration: 1, stagger: 0.2, ease: "customEase1" }, '<')
+      .to(fourCol, { y: '-58.5%', duration: 1, stagger: 0.2,  ease: "customEase1" }, '<');
 
     return tl;
   };
@@ -117,6 +149,8 @@ export const initializeAnimations = () => {
   // Animacija skaliranja
   const animateScaling = () => {
     const screen = document.querySelector('.grid');
+    
+
     const ssImage = document.querySelector('.img-container.ss img');
     const ssContainer = document.querySelector('.img-container.ss');
     // const backgroundImage = ssContainer.querySelector('img');
@@ -141,17 +175,21 @@ export const initializeAnimations = () => {
 
     ssContainer.style.width = `${window.innerWidth / scalingFactor}px`;
 
+    // Definišite custom easing koristeći cubic-bezier vrednosti
+
+
     const tl = gsap.timeline();
 
     tl.to(screen, {
       scale: scalingFactor,
-      duration: 1,
-      ease: 'power2.inOut',
+      duration: 5,
+       ease: "customEase2"
+
     })
       .to([ssImage, backgroundImgElement], {
         scale: 1,
-        duration: 3,
-        ease: 'power2.inOut',
+        duration: 5,
+        ease: "customEase2",
         onComplete: () => {
           gsap.to(ssContainer, {
             onComplete: () => {
@@ -160,7 +198,7 @@ export const initializeAnimations = () => {
             },
           });
         },
-      }, '1.3');
+      },'-=5' );
 
     return tl;
   };
@@ -169,14 +207,18 @@ export const initializeAnimations = () => {
   const runAnimations = () => {
     const masterTimeline = gsap.timeline();
     masterTimeline.add(animateAll());
-    masterTimeline.add(animateScaling(), '-=2.2');
+    masterTimeline.add(animateScaling(), '-=2');
+
+     
+  masterTimeline.add(() => {
+    // Ovdje se pozivaju tvoje tri animacije tačno kad su prethodne završile
+    console.log("Sve animacije su završene! Pokrećemo dodatne animacije...");
+    
+    letterAnimations();  // Animacija za slova
+    initSlideshow();     // Animacija za slideshow
+    animationScrool();   // Animacija za galeriju
+  });
   };
 
-  // Inicijalizacija
-  const images = document.querySelectorAll('img');
-  images.forEach((image) => {
-    image.onload = onImageLoad;
-    image.src = image.src; // Pokrećemo učitavanje slike
-  });
 };
 

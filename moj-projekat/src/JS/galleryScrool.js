@@ -13,8 +13,7 @@ export  const animationScrool = () => {
     const gridItemsInner = [...gridItems].map(item => item.querySelector('.gallery__item-inner'));
    
 
-    console.log(gridWrap, gridItems);
-
+   
     
 
     const timeline = gsap.timeline({
@@ -54,11 +53,11 @@ export  const animationScrool = () => {
   }, 0.5)
   .fromTo(gridItems, {
       rotationX: -70,
-      filter: 'brightness(120%)'
+    //   filter: 'brightness(120%)'
   }, {
       duration: 1,
       rotationX: 70,
-      filter: 'brightness(0%)',
+    //   filter: 'brightness(0%)',
       stagger: 0.04
   }, 0)
 
