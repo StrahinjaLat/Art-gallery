@@ -2,7 +2,7 @@
   height: 100%;
   width: 100%;
   margin-top: 100vh;
-  background-color: #eee9dd;
+  background-color: rgb(20, 20, 20, 1);
   position: relative;
   z-index: 2;
 }
@@ -11,11 +11,6 @@
   position: relative;
   z-index: 99;
   color: black;
-
-  font-family: "Cinzel", serif;
-  font-optical-sizing: auto;
-  font-weight: 700;
-  font-style: normal;
 }
 .splitting .word {
   white-space: nowrap;
@@ -80,4 +75,418 @@
 
 .mr-b {
   margin-bottom: 50vh;
+}
+
+/* Klasu za Lora font u italiku */
+.lora-italic {
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.container-sc {
+  margin: 0 auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  max-width: 100vw;
+}
+
+.header__about {
+  background-color: #da2524;
+  height: 100vh;
+  width: 100vw;
+  color: #131313;
+}
+
+.header__con {
+  min-height: 100vh;
+  // height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // padding-top: calc(min(10vw, 10em) * 1);
+  // padding-bottom: calc(min(10vw, 10em) * 1);
+  will-change: transform;
+}
+
+.header__row {
+  display: flex;
+  width: 100%;
+  position: relative;
+  justify-content: center;
+}
+
+.header__colume {
+  display: flex;
+  gap: 4vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.header__animet__h4 {
+  color: rgba(239, 239, 239, 1);
+  z-index: 3;
+  overflow: hidden;
+  text-align: center;
+  font-family: "Lora", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 1.85em;
+  line-height: 1.2;
+  font-size: min(1.75em, 7vw);
+}
+
+span {
+  display: inline-block;
+}
+
+.header__big__titles {
+  position: relative;
+}
+
+.before {
+  position: absolute;
+  transform: translateY(-0.75em);
+  transform: translateY(-1em);
+}
+
+.middle {
+  position: absolute;
+}
+
+.after {
+  position: absolute;
+  transform: translateY(1em);
+}
+
+.split-chars {
+  color: black;
+  font-size: clamp(7rem, 15.5vw, 14rem);
+  font-family: "Anton SC", sans-serif;
+
+  font-weight: 400;
+  font-style: normal;
+  margin: 0;
+  line-height: 0.8;
+  white-space: nowrap;
+}
+
+.h1__inner {
+  position: relative;
+  display: inline-block;
+  transform: translateY(4%);
+  font-size: 0;
+}
+
+.outline {
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1px rgba(19, 19, 19, 1);
+  opacity: 0.3;
+}
+
+.block__word {
+  position: relative;
+  display: inline-block;
+  margin-right: 2rem;
+}
+.single__letter {
+  overflow: visible;
+  display: inline-block;
+  font-family: "Anton SC", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(5rem, 15.5vw, 14rem);
+}
+
+.single__letter__inner {
+  position: relative;
+  will-change: transform;
+}
+
+.section__about {
+  background-color: rgb(20, 20, 20, 1);
+  position: relative;
+  padding-top: 2rem;
+}
+
+.about__flex__col {
+  display: flex;
+  width: 50%;
+}
+.about__title {
+  color: white;
+  font-family: "Anton SC", sans-serif;
+  font-weight: 100;
+  line-height: 1;
+  font-size: clamp(5em, 7.5vw, 7em);
+}
+
+.about__flex__col__r {
+  display: flex;
+  width: 50%;
+  margin-left: auto;
+}
+.co {
+  width: 100%;
+  display: flex;
+}
+
+.about__flex__col__r__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.content-section {
+  margin-bottom: 20px;
+}
+.ab {
+  color: white;
+  font-size: 1.85em;
+  line-height: 1.2;
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: italic;
+}
+.aa {
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-size: 1em;
+  line-height: 1.2;
+}
+
+.section-title {
+  margin-bottom: 0.8rem;
+
+  font-size: 1.3em;
+}
+
+.content-section p {
+}
+.split-text {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.word {
+  position: relative;
+  display: inline-block;
+  overflow: hidden; /* Sakriva deo reči koji izlazi izvan ekrana */
+  margin-right: 8px; /* Razmak između reči */
+}
+
+.word-inner {
+  display: block;
+  will-change: transform;
+}
+
+.section-clients-marquee {
+  padding-block: 2rem;
+}
+
+// .marquee3k {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   width: 100%;
+//   overflow: hidden;
+//   padding-block: 4rem;
+//   background-color: rgb(20, 20, 20, 1);
+//   height: 100%;
+// }
+.marquee3k-about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  overflow: hidden;
+  padding-block: 4rem;
+  background-color: rgb(20, 20, 20, 1);
+  height: 100%;
+}
+
+.marquee-content {
+  display: flex;
+  animation: marquee 20s linear infinite; /* Podesi brzinu animacije (dužinu trajanja) */
+}
+
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 50px; /* Razmak između slika */
+}
+
+.marquee-item img {
+  width: 50px; /* Veličina logotipa */
+  height: auto;
+  margin-right: 10px;
+}
+
+.services {
+  background-color: rgb(20, 20, 20, 1);
+}
+.services__wrapper {
+  color: white;
+  display: grid; /* Koristimo grid umesto flexboxa */
+  grid-template-columns: repeat(3, 1fr); /* 3 kolone sa jednakim udelom */
+  gap: 1rem; /* Razmak između stavki */
+  padding: 20px;
+  padding-block: 3rem;
+  width: 100%;
+}
+
+/* Styling for subtitles */
+.services__subtitle {
+  font-size: 1.5em;
+  font-weight: bold;
+
+  margin-bottom: 15px;
+  font-family: "Lora", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* Styling for the paragraph text */
+.service-item p {
+  font-size: 1em;
+
+  line-height: 1.5;
+}
+footer {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(20, 20, 20, 1);
+}
+.footer__header {
+  margin-top: 5rem;
+  margin-bottom: 4rem;
+  display: flex;
+  color: white;
+}
+
+.footer__title {
+  width: 50%;
+  font-family: "Anton SC", sans-serif;
+  font-weight: 100;
+  line-height: 1;
+  font-size: clamp(5em, 7.5vw, 7em);
+}
+
+.footer__get {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: flex-start; /* Poravnajte sadržaj na levoj strani */
+}
+
+.footer__get__title {
+  font-size: 1.8rem;
+  font-family: "Lora", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.footer__get__text {
+  font-size: 1.3rem;
+  font-family: "Lora", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+  width: 60%;
+}
+
+.footer__get__button {
+  padding: 12px 30px; /* Prostor unutar dugmeta, sa strane i gore/dole */
+  background-color: #0066cc; /* Osnovna boja dugmeta */
+  color: white; /* Boja teksta unutar dugmeta */
+  font-size: 1.1em; /* Veličina teksta */
+  border: none; /* Bez ivica */
+  border-radius: 30px; /* Okrugli ivici */
+  cursor: pointer; /* Kursor se menja na ruku kad se pređe preko dugmeta */
+  transition: all 0.3s ease-in-out; /* Glatke promene prilikom hover efekta */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Blagi senka ispod dugmeta */
+}
+
+.row-credentials {
+  color: white;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 3 kolone sa jednakim udelom */
+  gap: 2rem;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.col__line {
+  width: 100%;
+  height: 0.5px;
+  margin-bottom: 1.5rem;
+  background-color: white;
+  opacity: 0.5;
+}
+
+/* Style for the headings (h5) */
+.col-row h5 {
+  font-size: 1.25em;
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+/* Style for the text inside each column */
+.col-row p {
+  font-size: 1em;
+
+  line-height: 1.6;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .footer__header {
+    display: block;
+  }
+
+  .footer__title {
+    width: 100%;
+  }
+
+  .footer__get {
+    width: 100%;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  .footer__get__text {
+    width: 100%;
+  }
+
+  .row-credentials {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .about__flex__col {
+    width: 100%;
+  }
+  .about__flex__col__r {
+    width: 100%;
+    margin-top: 2rem;
+  }
+
+  .services__wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .row-credentials {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .services__wrapper {
+    grid-template-columns: repeat(1, 1fr);
+    margin-top: 2rem;
+  }
 }

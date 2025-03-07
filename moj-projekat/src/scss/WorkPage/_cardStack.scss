@@ -1,0 +1,28 @@
+.section {
+  background-color: rgb(229, 224, 220);
+  pointer-events: all;
+  position: relative;
+  padding-top: clamp(5em, 21vh, 12em);
+}
+
+.section-video-con {
+  margin: 0 auto;
+  padding-left: 6vw;
+  padding-right: 6vw;
+  max-width: 100em;
+}
+
+.section-video-row {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  padding-left: 6vw;
+  padding-right: 6vw;
+}
+
+.section-video-col {
+  display: block;
+  width: 100%;
+  order: 2;
+  position: relative;
+}

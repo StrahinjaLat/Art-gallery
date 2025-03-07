@@ -1,0 +1,169 @@
+.contact__header {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: black;
+}
+
+.conntact__section {
+  height: 100vh;
+  padding-inline: 2vw;
+  padding-block: 2vw;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.contact-info-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+  gap: 1rem;
+  color: white;
+}
+
+/* Svaka kontakt stavka */
+.contact-info-item {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+/* Slika unutar svakog elementa */
+.contact-info-image {
+  width: 70%;
+  overflow: hidden;
+  border: 2px black solid;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  aspect-ratio: 1 / 1;
+  margin: 100px auto;
+}
+
+.contact-info-item:nth-child(1) .contact-info-image,
+.contact-info-item:nth-child(3) .contact-info-image {
+  transform: rotate(10deg);
+}
+.contact-info-item:nth-child(2) .contact-info-image,
+.contact-info-item:nth-child(4) .contact-info-image {
+  transform: rotate(-10deg);
+}
+
+.contact-info-image img {
+  max-width: 100%;
+  height: auto;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.contact-info-item:hover .contact-info-image img {
+  opacity: 1;
+}
+
+/* Linija ispod slike */
+.contact-info-line {
+  width: 100%; /* Linija je širine 50% */
+  height: 2px;
+  background-color: #2c2c2c; /* Bela linija */
+
+  margin-bottom: 10px; /* Razmak između linije i naslova */
+}
+
+/* Naslov u svakom elementu */
+.contact-info-title h5 {
+  margin-bottom: 20px; /* Razmak ispod naslova */
+  font-size: 1.5rem;
+
+  margin-bottom: 15px;
+  font-family: "Lora", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* Tekst i linkovi u svakom elementu */
+.contact-info-detail {
+  margin-bottom: 10px; /* Razmak između stavki */
+  font-family: "Libre Franklin", sans-serif;
+
+  font-weight: 400;
+  font-style: normal;
+}
+
+.marquee__title {
+  color: white;
+}
+
+// .marquee3kk {
+//   position: fixed;
+//   top: 30%;
+//   left: 0;
+// }
+
+.marquee3kk {
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  gap: 2rem;
+}
+.marquee3k-contact {
+  position: absolute;
+}
+
+.marquee__title {
+  display: inline-block;
+}
+
+.title__marquee {
+  color: #da2524;
+  font-size: 6rem;
+  font-family: "Anton SC", sans-serif;
+  margin: 0; /* Uklanja podrazumevani razmak oko h4 */
+  white-space: nowrap; /* Sprečava prelamanje teksta na više linija */
+  display: inline-block; /* Pomeranje u jednoj liniji */
+  font-weight: 400;
+  font-style: normal;
+  margin-left: 0.5rem;
+}
+
+.app {
+}
+
+/* Za ekrane manja od 1200px, prikazuje 3 kolone */
+@media (max-width: 1199px) {
+  .contact-info-wrapper {
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 30%;
+  }
+  .contact-info-image {
+    display: none;
+  }
+}
+
+/* Za ekrane manja od 768px, prikazuje 2 kolone */
+@media (max-width: 767px) {
+  .contact-info-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 40%;
+  }
+}
+
+/* Za ekrane manja od 480px, prikazuje samo 1 kolonu */
+@media (max-width: 479px) {
+  .contact-info-wrapper {
+    grid-template-columns: 1fr;
+  }
+  .conntact__section {
+    height: 100%;
+    padding-inline: 2vw;
+    padding-block: 2vw;
+    margin-top: 20%;
+  }
+
+  .app {
+    top: 0;
+    padding: 0;
+  }
+}

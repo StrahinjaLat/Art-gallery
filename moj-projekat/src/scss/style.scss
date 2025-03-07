@@ -13,6 +13,10 @@
 @import "smoke";
 @import "workPage";
 @import "WorkPage/workGrid";
+@import "WorkPage/mokeup";
+@import "ContactPage/contact";
+@import "WorkPage/cardStack";
+@import "WorkPage/footerWork";
 /* Resetovanje svih default margina, paddinga i drugih vrednosti za semantičke HTML5 elemente */
 article,
 aside,
@@ -60,16 +64,7 @@ svg {
   max-width: 100%;
   height: auto;
 }
-.curve-svg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  width: 100vw;
-  height: calc(100vh + 600px);
-  transform: translateY(45%);
-  z-index: 99999;
-}
+
 a {
   text-decoration: none; /* Uklanja underline sa linkova */
   color: inherit; /* Ponaša se kao tekst */
@@ -81,16 +76,7 @@ ol {
   margin: 0;
   padding: 0;
 }
-/* Canvas za maglu */
-#fogCanvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none; /* Omogućava da canvas ne blokira interakciju sa drugim elementima */
-  z-index: 1;
-}
+
 button,
 input,
 select,
@@ -112,18 +98,6 @@ table {
   box-sizing: border-box; /* Osiguravamo da svi elementi uključuju border i padding u ukupnu veličinu */
 }
 
-.cinzel-bold {
-  font-family: "Cinzel", serif;
-  font-optical-sizing: auto;
-  font-weight: 700; // Težina fonta 700 (bold)
-  font-style: normal;
-}
-.cinzel-regular {
-  font-family: "Cinzel", serif;
-  font-optical-sizing: auto;
-  font-weight: 400; // Težina fonta 400 (regular)
-  font-style: normal;
-}
 button,
 input[type="button"],
 input[type="reset"],
@@ -134,31 +108,24 @@ input[type="submit"] {
   font: inherit;
   cursor: pointer;
 }
+
+html {
+  background-color: #161616;
+}
 body {
   /* Sakrij sadržaj dok se stranica učitava */
   // background-color: #1c1d20;
+  // background-color: rgb(20, 20, 20, 1);
 
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Cinzel", serif;
-  font-optical-sizing: auto;
-  font-weight: 400; // Težina fonta 400 (regular)
-  font-style: normal;
 }
+
 p {
   margin: 0; /* Uklanja sve margine sa svih strana */
 }
-.hidden {
-  visibility: hidden;
-  opacity: 0;
-  /* Opciono: dodajte tranziciju za glatko pojavljivanje */
-}
-.visible {
-  visibility: visible;
-  opacity: 1;
-  /* Opciono: dodajte tranziciju za glatko pojavljivanje */
-}
+
 h1,
 h2,
 h3,
@@ -228,15 +195,21 @@ img {
   top: 20%;
 }
 
-// .grid {
-//   position: absolute;
-//   left: -10%;
-//   display: grid;
-//   grid-template-columns: repeat(5, 1fr);
-//   gap: 2rem;
-//   width: 120%;
-// }
-
+.grid {
+  position: absolute;
+  left: -10%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2rem;
+  width: 120%;
+}
+.img-container {
+  height: 100px;
+  flex: 1; /* Unutarnji kontejneri Ä‡e podijeliti dostupan prostor u visini */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
 /* CSS za sliku unutar .img-container.ss */
 .img-container.ss img {
   width: 100%; /* Širina slike */
@@ -244,6 +217,7 @@ img {
   object-fit: cover; /* Osigurava da slika zauzme ceo prostor bez deformacije */
   object-position: center; /* Centrira sliku */
   display: block; /* Uklanja dodatni prostor ispod slike */
+  overflow: hidden;
 }
 
 .n {
@@ -258,4 +232,41 @@ img {
 .ss {
   position: relative;
   z-index: 99999999999;
+}
+
+/* .grid {
+    position: absolute;
+    left: -10%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2rem;
+    width: 120%;
+
+    transition: all 3s  cubic-bezier(0.47, 0, 0.745, 0.715);
+} */
+
+.n {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: stretch;
+}
+.ss {
+  position: relative;
+  z-index: 99999999999;
+}
+.img-container {
+  height: 100px;
+  flex: 1; /* Unutarnji kontejneri Ä‡e podijeliti dostupan prostor u visini */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

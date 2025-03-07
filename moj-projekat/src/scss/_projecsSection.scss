@@ -90,3 +90,31 @@
     align-self: flex-start;
   }
 }
+
+.swiper-container {
+  width: 100%;
+  padding: 2rem;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.swiper-wrapper {
+  display: flex; /* Podesite sve slajdove da budu u horizontalnom redu */
+  padding-inline: 10px;
+}
+
+.swiper-slide {
+  flex-shrink: 0; /* Sprečava smanjenje širine slajdova */
+  width: 45% !important;
+  margin-right: 10px; /* Razmak između slajdova */
+
+  border-radius: 20px;
+  overflow: hidden;
+  background-size: cover; /* Osiguravamo da se pozadinska slika prilagodi veličini slajda */
+  background-position: center center;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: auto;
+}

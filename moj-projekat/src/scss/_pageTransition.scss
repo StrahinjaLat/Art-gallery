@@ -10,9 +10,11 @@
 
 .titlesForPages__home,
 .titlesForPages__work,
-.titlesForPages__pro {
+.titlesForPages__pro,
+.titlesForPages__about,
+.titlesForPages__contact {
   opacity: 0;
-  will-change: transform opacity;
+  will-change: transform, opacity;
 }
 
 .ap {
@@ -22,4 +24,15 @@
   transform: translate(-50%, -50%); /* Savršeno centriranje horizontalno */
   font-size: 24px; /* Velicina fonta */
   color: white; /* Boja teksta */
+}
+
+.curve-svg {
+  position: fixed;
+  top: -300px;
+  left: 0;
+  pointer-events: none;
+  width: 100vw;
+  height: calc(100vh + 600px);
+  transform: translateY(100%);
+  z-index: 99999;
 }
