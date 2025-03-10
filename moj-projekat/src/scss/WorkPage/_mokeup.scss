@@ -1,9 +1,11 @@
 .device-mockup-laptop {
-  background-color: rgb(221, 221, 221);
+  // background-color: rgb(221, 221, 221);
+  background-color: rgb(229, 224, 220);
   position: relative;
   display: block;
   padding-bottom: 6vh;
   padding-top: 6vh;
+  margin-top: 3rem;
 }
 
 .macbook-container {
@@ -30,6 +32,7 @@
 
 .screen-video {
   width: 100%;
+
   background: rgba(100, 100, 100, 0.1);
   overflow: hidden;
   position: absolute;
@@ -64,21 +67,13 @@
   position: relative;
 }
 
-.screen {
-  position: absolute;
-  top: 28%; /* Pozicija ekrana unutar MacBook-a */
-  left: 16.8%; /* Pozicija ekrana unutar MacBook-a */
-  width: 66.8%; /* 80% širine ekrana MacBook-a */
-  height: 42%;
-  overflow: hidden;
-}
-
 .phone-container-s {
   position: relative;
   padding: 6vh;
   max-width: 1440px;
   margin: 0 auto;
   height: 100%;
+  background-color: rgb(229, 224, 220);
 }
 
 .phone-container {

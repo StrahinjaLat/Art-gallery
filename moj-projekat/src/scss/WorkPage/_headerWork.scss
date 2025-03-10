@@ -1,0 +1,152 @@
+.project-work-header {
+  padding: 0;
+  overflow: visible;
+  position: relative;
+  background-color: white;
+}
+
+.work-header-con {
+  margin: 0 auto;
+  padding-left: clamp(1.33em, 3vw, 3em);
+  padding-right: clamp(1.33em, 3vw, 3em);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.work-header-row {
+  //   padding-top: clamp(5em, 7.5vw, 7em);
+  justify-content: center;
+}
+
+.work-header-col {
+  position: relative;
+}
+
+.ww {
+  color: white;
+}
+
+.off {
+  overflow: hidden;
+  line-height: 0.9;
+}
+
+.bottom-links {
+  color: white;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+// .black-bg {
+//   //   height: calc(100% + 10vh);
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+
+//   width: 100%;
+//   //   height: calc(100% + 10vh);
+//   overflow: hidden;
+// }
+
+.ptoject-details {
+  color: white;
+}
+
+.con {
+  margin: 0 auto;
+  padding-left: 6vw;
+  padding-right: 6vw;
+  max-width: 100em;
+}
+
+.bd {
+  color: white;
+  font-family: "Anton SC", sans-serif;
+  font-weight: 400;
+  line-height: 1;
+  font-size: clamp(5em, 7.5vw, 7em);
+  padding-bottom: 5rem;
+  padding-top: 5rem;
+}
+
+.ptoject-details-flex {
+  display: flex;
+}
+
+.ptoject-details-col {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.ptoject-details-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: calc(clamp(1.75em, 3vw, 3em) * 0.9);
+}
+
+.ptoject-details-wrap .col-row:nth-child(1) {
+  display: flex;
+  flex-direction: column;
+}
+
+.h3 {
+  padding-bottom: 1em;
+  color: rgba(239, 239, 239, 1);
+  text-transform: uppercase;
+}
+
+.ptoject-details-wrap .col-row:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(239, 239, 239, 0.25);
+  padding-top: clamp(1.75em, 3vw, 3em);
+}
+
+.ptoject-details-wrap .col-row:nth-child(3) {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(239, 239, 239, 0.25);
+  padding-top: clamp(1.75em, 3vw, 3em);
+}
+
+.text-project {
+  color: rgba(239, 239, 239, 0.7);
+}
+
+.ptoject-details-col-r {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.75em, 3vw, 3em);
+}
+
+@media (max-width: 1024px) {
+  .ptoject-details-flex {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 2rem;
+  }
+
+  .ptoject-details-wrap {
+    width: 100%;
+  }
+  .ptoject-details-col {
+    width: 100%;
+  }
+
+  .ptoject-details-col-r {
+    width: 100%;
+  }
+}
+
+/* Za tablet uređaje u portrait modu */
+@media (max-width: 768px) {
+}

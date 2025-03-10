@@ -1,159 +1,37 @@
 @use "variables" as *;
+@import "reset.scss";
+@import "HomePage/homeMarque";
+@import "HomePage/homeAbouteUs";
+@import "HomePage/homeSlider";
+@import "HomePage/homeScrollSlider";
+@import "HomePage/homeFooter";
+@import "WorkPage/cardStack";
+@import "WorkPage/footerWork";
+@import "WorkPage/headerWork";
 @import "menu";
-@import "homeSlider";
+
 @import "aboute";
-@import "mouse";
+
 @import "buttons";
 @import "projecsSection";
-@import "gridGal";
-@import "footer";
-@import "de";
-@import "detailpage";
+
 @import "pageTransition";
-@import "smoke";
+
 @import "workPage";
 @import "WorkPage/workGrid";
 @import "WorkPage/mokeup";
 @import "ContactPage/contact";
-@import "WorkPage/cardStack";
-@import "WorkPage/footerWork";
-/* Resetovanje svih default margina, paddinga i drugih vrednosti za semantičke HTML5 elemente */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-main,
-mark,
-nav,
-section,
-summary {
-  margin: 0;
-  padding: 0;
-  border: none;
-  font-size: 100%;
-  vertical-align: baseline;
-  display: block; /* Osiguravamo da su ovi elementi blokovi */
-}
-
-/* Takođe, možemo ukloniti margine i paddinge sa svih child elemenata */
-article > *,
-aside > *,
-details > *,
-figcaption > *,
-figure > *,
-footer > *,
-header > *,
-main > *,
-mark > *,
-nav > *,
-section > *,
-summary > * {
-  margin: 0;
-  padding: 0;
-}
-
-/* Takođe, resetovanje slika, linkova i sl. */
-img,
-picture,
-video,
-svg {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
-a {
-  text-decoration: none; /* Uklanja underline sa linkova */
-  color: inherit; /* Ponaša se kao tekst */
-}
-
-ul,
-ol {
-  list-style: none; /* Uklanja bullet tačke sa lista */
-  margin: 0;
-  padding: 0;
-}
-
-button,
-input,
-select,
-textarea {
-  background: none;
-  border: none;
-  padding: 0;
-  font: inherit;
-  color: inherit;
-}
-
-table {
-  border-collapse: collapse; /* Spaja granice tabele */
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box; /* Osiguravamo da svi elementi uključuju border i padding u ukupnu veličinu */
-}
-
-button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-  appearance: none;
-  border: none;
-  background: none;
-  font: inherit;
-  cursor: pointer;
-}
 
 html {
-  background-color: #161616;
+  background-color: #1c1d20;
 }
 body {
-  /* Sakrij sadržaj dok se stranica učitava */
-  // background-color: #1c1d20;
-  // background-color: rgb(20, 20, 20, 1);
-
+  background-color: #1c1d20;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-p {
-  margin: 0; /* Uklanja sve margine sa svih strana */
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0;
-  padding: 0;
-  font-size: initial;
-  font-family: initial;
-  line-height: normal;
-}
-
-#overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 1); /* crni ekran */
-  z-index: 1000; /* postavljanje na vrh */
-  opacity: 0;
-  pointer-events: none; /* onemogućava interakciju sa overlay-om */
-}
-
-#overlay.show {
-  opacity: 1; /* kada je aktiviran, overlay postaje vidljiv */
-}
 .ddd {
   position: fixed;
   top: 0;
@@ -161,20 +39,14 @@ h6 {
   z-index: 20;
   color: black;
 }
-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-}
+
 .beckGroundImage {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
+
   overflow: hidden;
 }
 .loading-screen {
@@ -234,17 +106,6 @@ img {
   z-index: 99999999999;
 }
 
-/* .grid {
-    position: absolute;
-    left: -10%;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 2rem;
-    width: 120%;
-
-    transition: all 3s  cubic-bezier(0.47, 0, 0.745, 0.715);
-} */
-
 .n {
   width: 100%;
   height: 100vh;
@@ -269,4 +130,26 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.scrolling-text {
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+.rail {
+  display: flex;
+}
+.bbbb {
+  white-space: nowrap;
+  font-size: 200px;
+  font-weight: 900;
+  margin-right: 20px;
+  line-height: 1em;
+  margin: 0 2rem 0 0;
+  color: white;
 }

@@ -2,9 +2,11 @@
   height: 100%;
   width: 100%;
   margin-top: 100vh;
-  background-color: rgb(20, 20, 20, 1);
+  background-color: #1c1d20;
   position: relative;
   z-index: 2;
+  border-top-left-radius: 5rem;
+  border-radius: 5rem;
 }
 
 .content {
@@ -202,128 +204,6 @@ span {
 .single__letter__inner {
   position: relative;
   will-change: transform;
-}
-
-.section__about {
-  background-color: rgb(20, 20, 20, 1);
-  position: relative;
-  padding-top: 2rem;
-}
-
-.about__flex__col {
-  display: flex;
-  width: 50%;
-}
-.about__title {
-  color: white;
-  font-family: "Anton SC", sans-serif;
-  font-weight: 100;
-  line-height: 1;
-  font-size: clamp(5em, 7.5vw, 7em);
-}
-
-.about__flex__col__r {
-  display: flex;
-  width: 50%;
-  margin-left: auto;
-}
-.co {
-  width: 100%;
-  display: flex;
-}
-
-.about__flex__col__r__wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.content-section {
-  margin-bottom: 20px;
-}
-.ab {
-  color: white;
-  font-size: 1.85em;
-  line-height: 1.2;
-  font-family: "Lora", serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: italic;
-}
-.aa {
-  color: white;
-  font-family: "Roboto", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 200;
-  font-size: 1em;
-  line-height: 1.2;
-}
-
-.section-title {
-  margin-bottom: 0.8rem;
-
-  font-size: 1.3em;
-}
-
-.content-section p {
-}
-.split-text {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.word {
-  position: relative;
-  display: inline-block;
-  overflow: hidden; /* Sakriva deo reči koji izlazi izvan ekrana */
-  margin-right: 8px; /* Razmak između reči */
-}
-
-.word-inner {
-  display: block;
-  will-change: transform;
-}
-
-.section-clients-marquee {
-  padding-block: 2rem;
-}
-
-// .marquee3k {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   width: 100%;
-//   overflow: hidden;
-//   padding-block: 4rem;
-//   background-color: rgb(20, 20, 20, 1);
-//   height: 100%;
-// }
-.marquee3k-about {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  overflow: hidden;
-  padding-block: 4rem;
-  background-color: rgb(20, 20, 20, 1);
-  height: 100%;
-}
-
-.marquee-content {
-  display: flex;
-  animation: marquee 20s linear infinite; /* Podesi brzinu animacije (dužinu trajanja) */
-}
-
-.marquee-item {
-  display: inline-flex;
-  align-items: center;
-  margin-right: 50px; /* Razmak između slika */
-}
-
-.marquee-item img {
-  width: 50px; /* Veličina logotipa */
-  height: auto;
-  margin-right: 10px;
 }
 
 .services {

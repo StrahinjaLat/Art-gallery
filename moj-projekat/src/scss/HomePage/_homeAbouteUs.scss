@@ -1,0 +1,140 @@
+.section__about {
+  position: relative;
+  background-color: #1c1d20;
+  padding-bottom: min(10vw, 10em);
+  padding-top: min(10vw, 10em);
+  border-radius: 2rem;
+}
+
+.about__flex__col {
+  display: flex;
+  // width: 50%;
+}
+.about__title {
+  color: white;
+  font-family: "Anton SC", sans-serif;
+  font-weight: 100;
+  line-height: 1;
+  font-size: clamp(5em, 7.5vw, 7em);
+}
+
+.about__flex__col__r {
+  display: flex;
+  width: 50%;
+  margin-left: auto;
+}
+.co {
+  width: 100%;
+  display: flex;
+}
+
+.about__flex__col__r__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.content-section {
+  margin-bottom: 20px;
+}
+.ab {
+  color: white;
+  font-size: 1.85em;
+  line-height: 1.2;
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: italic;
+}
+.aa {
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-size: 1em;
+  line-height: 1.2;
+}
+
+.section-title {
+  margin-bottom: 0.8rem;
+
+  font-size: 1.3em;
+}
+
+.split-text {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.word {
+  position: relative;
+  display: inline-block;
+  overflow: hidden; /* Sakriva deo reči koji izlazi izvan ekrana */
+  margin-right: 8px; /* Razmak između reči */
+}
+
+.word-inner {
+  display: block;
+  will-change: transform;
+}
+
+@media (max-width: 1199px) {
+}
+
+/* Za ekrane manja od 768px, prikazuje 2 kolone */
+@media (max-width: 767px) {
+}
+
+/* Za ekrane manja od 480px, prikazuje samo 1 kolonu */
+@media (max-width: 479px) {
+}
+
+.button-prime {
+  margin-top: 3rem;
+}
+.button-prime-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.button-prime-text {
+  font-family: "Anton SC", sans-serif;
+  font-weight: 100;
+  color: wheat;
+  font-size: 2rem;
+  font-style: italic;
+}
+
+.button-prime-circle {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: black;
+  color: white;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+}
+
+.button-prime-wrapper .button-prime-circle .arrow {
+  opacity: 0.7; /* Strelica je blago providna */
+}
+
+.button-prime-wrapper:hover .button-prime-circle {
+  background-color: #ce1b1b; /* Promeni boju pri hoveru */
+}
+
+.about__work {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  color: white;
+  font-family: "Anton SC", sans-serif;
+  font-weight: 100;
+  line-height: 1;
+  font-size: clamp(5em, 7.5vw, 7em);
+  // padding-bottom: min(10vw, 10em);
+}

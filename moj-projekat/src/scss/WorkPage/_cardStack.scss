@@ -26,3 +26,24 @@
   order: 2;
   position: relative;
 }
+
+.video-con {
+  border-radius: 0.75em;
+  width: 100%;
+  background: rgba(100, 100, 100, 0.1);
+  overflow: hidden;
+  position: relative;
+  top: unset;
+  left: unset;
+
+  //   transform: translate(0, 0);
+}
+
+.video-con::before {
+  content: "";
+  display: block;
+  padding-top: 62.5%;
+}
+.mrt {
+  object-fit: cover;
+}
